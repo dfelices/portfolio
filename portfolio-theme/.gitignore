@@ -1,0 +1,21 @@
+# React App
+/react-app/node_modules/
+/react-app/dist/
+/react-app/.env
+/react-app/.env.*
+
+# WordPress
+/wordpress/wp-content/uploads/
+/wordpress/wp-content/cache/
+/wordpress/wp-config.php
+/wordpress/wp-content/themes/*/
+!/wordpress/wp-content/themes/portfolio-theme/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+
+# System and Editor
+.DS_Store
+.vscode/
+
