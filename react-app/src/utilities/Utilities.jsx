@@ -1,1 +1,2 @@
 export const restBase = 'https://daniellefelices.com/portfolio-backend/wp-json/wp/v2'
+export const customEndPointGlobalSettings = 'https://daniellefelices.com/portfolio-backend/wp-json/custom/v1/global-settings'
