@@ -1,0 +1,1 @@
+export const restBase = 'https://daniellefelices.com/portfolio-backend/wp-json/wp/v2'
