@@ -34,7 +34,7 @@ function HomeSection (){
                         <a href={link.platform_url} key={index} target="_blank" rel="noopener noreferrer">
                     {/* Dynamically render the appropriate icon based on platform name */}
                     <img
-                        src={`/public/icons/contact/${link.platform_name.toLowerCase()}-default.svg`}
+                        src={`/icons/contact/${link.platform_name.toLowerCase()}-default.svg`}
                         alt={`${link.platform_name} icon`}
                     />
             </a>
