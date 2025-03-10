@@ -34,6 +34,13 @@ function WorkSection (){
                             src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url|| 'https://placehold.co/150'}
                             alt={work.title.rendered}
                         />
+                        {/* <div className="tools-container">
+                        {workTools?.map((tool) => (
+                            <span key={tool.id} className="tool">
+                                {tool.name}
+                            </span>
+                        ))}
+                        </div> */}
                     </div>
                 ))}
 
