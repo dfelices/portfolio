@@ -1,8 +1,9 @@
 import { restBase } from '../../utilities/Globals'
 import {useState, useEffect} from 'react'
 import Loading from "../../utilities/Loading"
+import { Link } from 'react-router-dom'
 
-function WorkSection (){
+function WorkSection () {
     const restPath = restBase + 'portfolio-work?_embed'
     const [restData, setData] =useState([])
     const [isLoaded, setLoadStatus] = useState(false)
@@ -34,13 +35,19 @@ function WorkSection (){
                             src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url|| 'https://placehold.co/150'}
                             alt={work.title.rendered}
                         />
-                        {/* <div className="tools-container">
-                        {workTools?.map((tool) => (
-                            <span key={tool.id} className="tool">
-                                {tool.name}
-                            </span>
-                        ))}
-                        </div> */}
+
+                        <div className="tools-list">
+                            {work.acf?.work_tools.map((tool) => (
+                                <span key={tool.term_id} className='tool'>
+                                    {tool.name}
+                                </span>
+                            ))}
+                        </div>
+
+                        <Link to={`/work/${work.id}`} className='more-info-link'>
+                            More info
+                        </Link>
+                        
                     </div>
                 ))}
 
