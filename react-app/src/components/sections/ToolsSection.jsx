@@ -6,7 +6,7 @@ import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
 import "react-tabs/style/react-tabs.css";
 
 function ToolsSection (){
-    const restPath = restBase + 'portfolio-tool-category'
+    const restPath = restBase + 'portfolio-tool-category?per_page=100'
     const [restData, setData] =useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -15,6 +15,7 @@ function ToolsSection (){
             const response = await fetch(restPath)
             if (response.ok) {
                 const data = await response.json()
+                console.log("Fetched Data", data)
                 setData(data)
                 setLoadStatus(true)
             } else {
@@ -25,7 +26,11 @@ function ToolsSection (){
     }, [restPath])
     
     // Helper function to filter categories
-    const getAllTerms = () => restData
+    const getAllTerms = () => 
+        restData.filter(
+            (term) => !["All", "Design", "Development", "Professional Highlights"].includes(term.name)
+        );
+    
     const getTermsByParent = (parentName) => {
         const parentTerm = restData.find((term) => term.name === parentName)
         return parentTerm ? restData.filter((term) => term.parent === parentTerm.id) : []
@@ -34,7 +39,7 @@ function ToolsSection (){
     // Filter terms by category
     const designTerms = getTermsByParent("Design")
     const developmentTerms = getTermsByParent("Development")
-    const professionalHighlightsTerms = getTermsByParent("ProfessionalHighlights")
+    const professionalHighlightsTerms = getTermsByParent("Professional Highlights")
 
     return(
         <>
