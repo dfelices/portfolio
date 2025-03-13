@@ -2,46 +2,22 @@ import HomeSection from '../components/sections/HomeSection'
 import WorkSection from '../components/sections/WorkSection'
 import ToolsSection from '../components/sections/ToolsSection'
 import AboutSection from '../components/sections/AboutSection'
-import ContactSection from '../components/sections/ContactSection'
+import { restBase, useFetch } from '../utilities/Globals'
 import Loading from '../utilities/Loading'
-import { restBase } from '../utilities/Globals'
-import { useState, useEffect } from 'react'
-
-
 
 function PageHome(){
-    const restPath = restBase + 'portfolio-work'
-        const [restData, setData] =useState([])
-        const [isLoaded, setLoadStatus] = useState(false)
+    const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-work');
 
-        useEffect(() => {
-            const fetchData = async () => {
-                const response = await fetch(restPath)
-                if (response.ok) {
-                    const data = await response.json()
-                    setData(data)
-                    setLoadStatus(true)
-                } else {
-                    setLoadStatus(false)
-                }
-            }
-            fetchData();
-        }, [restPath])
-
+    if (isLoading) return <Loading />;
+    if (error) return <p>Error: {error}</p>;
 
     return(
-        <>
-        {isLoaded?
-            <div>
-                <HomeSection />
-                <WorkSection works={restData}/>
-                <ToolsSection />
-                <AboutSection />
-            </div>
-        :
-            <Loading />
-        }
-        </>
+        <div>
+            <HomeSection />
+            <WorkSection works={restData}/>
+            <ToolsSection />
+            <AboutSection />
+        </div>
     )
 }
 

@@ -10,8 +10,6 @@ function ToolsSection (){
     if (isLoading) return <Loading />;
     if (error) return <p>Error: {error}</p>;
 
-
-
     // Helper function to filter categories
     const getAllTerms = () => 
         restData.filter(

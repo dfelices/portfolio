@@ -1,20 +1,32 @@
 import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
-import { Link } from 'react-router-dom'
+import WorksOverlay from '../WorksOverlay';
+import { useState } from 'react';
 
 function WorkSection () {
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-work?_embed');
+    const [selectedWork, setSelectedWork] = useState(null);
 
     if (isLoading) return <Loading />;
     if (error) return <p>Error: {error}</p>;
-    
+
     return(
+        <>
         <section id='work' className='portfolio-works'>
             {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
                 restData
                     .filter((work) => work.acf?.show_in_portfolio?.includes("1"))
                     .map((work) => (
-                        <Link to={`/work/${work.id}`} key={work.id} className='more-info-link'>
+                        <a
+                        href="javascript:void(0);"
+                        key={work.id}
+                        className="portfolio-item"
+                        onClick={(e) => {
+                            e.preventDefault(); // Prevent navigation
+                            console.log("Selected Work:", work); // Check if work is being passed correctly
+                            setSelectedWork(work); // Open overlay
+                        }}
+                        >
                             <div className="portfolio-item">
                                 <h2>{work.title.rendered}</h2>
                                 <img
@@ -30,12 +42,21 @@ function WorkSection () {
                                 </div>
                                 <p>More info</p>
                             </div>
-                        </Link>
+                        </a>
                     ))
                 ) : (
                     <p>No works to display at the moment.</p>
                 )}
         </section>
+
+        {selectedWork && (
+            <WorksOverlay
+                work={selectedWork}
+                onClose={() => setSelectedWork(null)} // Close overlay
+            />
+        )}
+
+        </>
     )
 }
 
