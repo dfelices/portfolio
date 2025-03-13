@@ -15,7 +15,6 @@ function ToolsSection (){
             const response = await fetch(restPath)
             if (response.ok) {
                 const data = await response.json()
-                console.log("Fetched Data", data)
                 setData(data)
                 setLoadStatus(true)
             } else {
