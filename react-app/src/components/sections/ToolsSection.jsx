@@ -1,29 +1,17 @@
-import { restBase } from '../../utilities/Globals'
-import {useState, useEffect} from 'react'
+import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
 import ProfessionalBio from '../professionalBio'
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
 import "react-tabs/style/react-tabs.css";
 
 function ToolsSection (){
-    const restPath = restBase + 'portfolio-tool-category?per_page=100'
-    const [restData, setData] =useState([])
-    const [isLoaded, setLoadStatus] = useState(false)
+    const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-tool-category?per_page=100');
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(restPath)
-            if (response.ok) {
-                const data = await response.json()
-                setData(data)
-                setLoadStatus(true)
-            } else {
-                setLoadStatus(false)
-            }
-        }
-        fetchData();
-    }, [restPath])
-    
+    if (isLoading) return <Loading />;
+    if (error) return <p>Error: {error}</p>;
+
+
+
     // Helper function to filter categories
     const getAllTerms = () => 
         restData.filter(
@@ -41,55 +29,47 @@ function ToolsSection (){
     const professionalHighlightsTerms = getTermsByParent("Professional Highlights")
 
     return(
-        <>
-        { isLoaded?
-            <section id='tools' className='tools-section'>
-                <h2>Tools</h2>
-                <ProfessionalBio />
-                <Tabs>
-                    <TabList>
-                        <Tab>All</Tab>
-                        <Tab>Design</Tab>
-                        <Tab>Development</Tab>
-                        <Tab>Professional Highlights</Tab>
-                    </TabList>
+        <section id='tools' className='tools-section'>
+            <h2>Tools</h2>
+            <ProfessionalBio />
+            <Tabs>
+                <TabList>
+                    <Tab>All</Tab>
+                    <Tab>Design</Tab>
+                    <Tab>Development</Tab>
+                    <Tab>Professional Highlights</Tab>
+                </TabList>
 
-                    <TabPanel>
-                        <ul>
-                            {getAllTerms().map((term) => (
-                                <li key={term.id}>{term.name}</li>
+                <TabPanel>
+                    <ul>
+                        {getAllTerms().map((term) => (
+                            <li key={term.id}>{term.name}</li>
                             ))}
-                        </ul>
-                    </TabPanel>
-                    <TabPanel>
-                        <ul>
-                            {designTerms.map((term) => (
-                                <li key={term.id}>{term.name}</li>
+                    </ul>
+                </TabPanel>
+                <TabPanel>
+                    <ul>
+                        {designTerms.map((term) => (
+                            <li key={term.id}>{term.name}</li>
                             ))}
-                        </ul>
-                    </TabPanel>
-                    <TabPanel>
-                        <ul>
-                            {developmentTerms.map((term) => (
-                                <li key={term.id}>{term.name}</li>
+                    </ul>
+                </TabPanel>
+                <TabPanel>
+                    <ul>
+                        {developmentTerms.map((term) => (
+                            <li key={term.id}>{term.name}</li>
                             ))}
-                        </ul>
-                    </TabPanel>
-                    <TabPanel>
-                        <ul>
-                            {professionalHighlightsTerms.map((term) => (
-                                <li key={term.id}>{term.name}</li>
+                    </ul>
+                </TabPanel>
+                <TabPanel>
+                    <ul>
+                        {professionalHighlightsTerms.map((term) => (
+                            <li key={term.id}>{term.name}</li>
                             ))}
-                        </ul>
-                    </TabPanel>
-
-                </Tabs>
-
-            </section>
-        :
-            <Loading />
-        }
-        </>
+                    </ul>
+                </TabPanel>
+            </Tabs>
+        </section>
     )
 }
 

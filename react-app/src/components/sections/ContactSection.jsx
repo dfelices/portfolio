@@ -1,30 +1,15 @@
-import { customEndPointGlobalSettings } from '../../utilities/Globals'
-import {useState, useEffect} from 'react'
+import { customEndPointGlobalSettings, useFetch } from "../../utilities/Globals";
 import Loading from "../../utilities/Loading"
 
 
 function ContactSection (){
-    const restPath = customEndPointGlobalSettings
-    const [restData, setData] =useState([])
-    const [isLoaded, setLoadStatus] = useState(false)
+    const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(restPath)
-            if (response.ok) {
-                const data = await response.json()
-                setData(data)
-                setLoadStatus(true)
-            } else {
-                setLoadStatus(false)
-            }
-        }
-        fetchData();
-    }, [restPath])
+    if (isLoading) return <Loading />;
+    if (error) return <p>Error: {error}</p>;
 
     return(
         <>
-        { isLoaded?
         <div className='contact-icons'>
             {restData.contact_links.map((link, index) => (
                 <a href={link.platform_url} key={index} target="_blank" rel="noopener noreferrer">
@@ -36,11 +21,6 @@ function ContactSection (){
                 </a>
             ))}
         </div>
-
-        : 
-
-        <Loading />
-        }
         </>
 
     )

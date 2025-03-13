@@ -1,41 +1,21 @@
-import { customEndPointGlobalSettings } from '../../utilities/Globals'
-import {useState, useEffect} from 'react'
+import { customEndPointGlobalSettings, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
 import ContactSection from './ContactSection'
 
 
 function HomeSection (){
-    const restPath = customEndPointGlobalSettings
-    const [restData, setData] =useState([])
-    const [isLoaded, setLoadStatus] = useState(false)
+    const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(restPath)
-            if (response.ok) {
-                const data = await response.json()
-                setData(data)
-                setLoadStatus(true)
-            } else {
-                setLoadStatus(false)
-            }
-        }
-        fetchData();
-    }, [restPath])
+    if (isLoading) return <Loading />;
+    if (error) return <p>Error: {error}</p>;
     
     return(
-        <>
-        { isLoaded?
-            <section id='home'>
-                <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
-                <p>{restData.title}</p>
-                <p>{`${restData.tagline}`}</p>
-                <ContactSection />
-            </section>
-        :
-            <Loading />
-        }
-        </>
+        <section id='home'>
+            <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
+            <p>{restData.title}</p>
+            <p>{`${restData.tagline}`}</p>
+            <ContactSection />
+        </section>
     )
 }
 
