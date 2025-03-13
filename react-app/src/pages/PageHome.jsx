@@ -37,7 +37,6 @@ function PageHome(){
                 <WorkSection works={restData}/>
                 <ToolsSection />
                 <AboutSection />
-                <ContactSection />
             </div>
         :
             <Loading />
