@@ -1,7 +1,6 @@
 import { customEndPointGlobalSettings } from '../../utilities/Globals'
 import {useState, useEffect} from 'react'
 import Loading from "../../utilities/Loading"
-import PersonalBio from '../PersonalBio'
 
 function AboutSection (){
     const restPath = customEndPointGlobalSettings
@@ -27,7 +26,8 @@ function AboutSection (){
         { isLoaded?
             <section id='about' className='about-section'>
                 <h2>About</h2>
-                <PersonalBio />
+                <p>{restData.personal_bio}</p>
+
                 {restData.fun_stuff && restData.fun_stuff.length > 0 ? (
                     <ul>
                         {restData.fun_stuff.map((itemObj, index) => (
