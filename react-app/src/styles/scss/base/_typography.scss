@@ -1,0 +1,60 @@
+@use './variables' as *;
+
+
+/* Typography
+--------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+    color: $primary-dark;
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    font-size: clamp(3rem, 5vw, 4.25rem);
+}
+
+h2 {font-size: clamps(2rem, 5vw, 2.75rem)
+
+}
+
+ul{
+    list-style: none;
+}
+
+.profile-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tagline{
+    font-size: 1rem;
+}
+
+
+
+/* Links
+--------------------------------------------- */
+a{
+	text-decoration: none;
+    color: $primary-dark;
+
+    &:hover,
+    &:focus, 
+    &:active {
+        text-decoration: none;
+        color: $primary-dark;
+    }
+
+    &:hover {
+        transform: scale(1.03);
+        transition: 0.25s;
+    }
+}
+
+

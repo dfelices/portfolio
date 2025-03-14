@@ -12,8 +12,8 @@ function HomeSection (){
     return(
         <section id='home'>
             <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
-            <p>{restData.title}</p>
-            <p>{`${restData.tagline}`}</p>
+            <p className='profile-title'>{restData.title}</p>
+            <p className='tagline'>{`${restData.tagline}`}</p>
             <ContactSection />
         </section>
     )

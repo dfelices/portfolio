@@ -1,5 +1,49 @@
+@use './variables' as *;
+
 @import 'normalize.css';
 
-body {
-    background-color: lightblue;
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic (imported above)
+	- Normalize
+	- Box sizing
+	- Media width
+# Base
+	- Typography (called in _typography)
+	- Elements
+	- Links (called in _typography)
+# Layouts
+# Components (called in components folder within component-specific files)
+	- mobileNav
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+/* Elements
+--------------------------------------------- */
+img{
+    object-fit: cover;
+    object-position: center center;
 }
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
+body {
+    background-color: $primary-light;  
+}
+
+/* Header
+--------------------------------------------- */
+
+/* Main
+--------------------------------------------- */
+
+/* Footer
+--------------------------------------------- */
+
+

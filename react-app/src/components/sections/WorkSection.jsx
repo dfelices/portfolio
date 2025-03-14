@@ -13,6 +13,7 @@ function WorkSection () {
     return(
         <>
         <section id='work' className='portfolio-works'>
+            <h2>Work</h2>
             {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
                 restData
                     .filter((work) => work.acf?.show_in_portfolio?.includes("1"))
