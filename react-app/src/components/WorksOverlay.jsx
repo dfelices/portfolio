@@ -1,8 +1,6 @@
 // WorksOverlay.js
 import React from 'react';
-import '../styles/overlay.css';
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
-
 
 function WorksOverlay({ work, onClose }) {
 

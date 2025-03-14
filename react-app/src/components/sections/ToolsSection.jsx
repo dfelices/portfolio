@@ -2,7 +2,7 @@ import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
 import ProfessionalBio from '../professionalBio'
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
-import "react-tabs/style/react-tabs.css";
+// import "react-tabs/style/react-tabs.css";
 
 function ToolsSection (){
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-tool-category?per_page=100');
