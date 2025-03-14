@@ -15,6 +15,10 @@ function WorksOverlay({ work, onClose }) {
                     src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/150'}
                     alt={work.title.rendered || 'Work image'}
                 />
+
+                {work.acf?.live_site_link && (<a href={work.acf.live_site_link}>Live Site</a>)}
+                {work.acf?.github_repo_link && (<a href={work.acf.github_repo_link}>GitHub</a>)}
+
                 <h2>{work.title.rendered}</h2>
 
                 <div className="tools-list">
