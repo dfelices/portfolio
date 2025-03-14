@@ -24,6 +24,11 @@
 
 /* Elements
 --------------------------------------------- */
+.portfolio-item img{
+    width: 9.375rem;
+    height: auto;
+}
+
 img{
     object-fit: cover;
     object-position: center center;
@@ -33,15 +38,15 @@ img{
 # Layout
 --------------------------------------------------------------*/
 
-body {
+.content-wrapper {
     background-color: $primary-light;  
+    padding: 2rem 1rem 5.625rem;
 }
-
-/* Header
---------------------------------------------- */
 
 /* Main
 --------------------------------------------- */
+
+
 
 /* Footer
 --------------------------------------------- */

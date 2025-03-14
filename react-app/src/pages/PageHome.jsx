@@ -12,7 +12,7 @@ function PageHome(){
     if (error) return <p>Error: {error}</p>;
 
     return(
-        <div>
+        <div className='content-wrapper'>
             <HomeSection />
             <WorkSection works={restData}/>
             <ToolsSection />

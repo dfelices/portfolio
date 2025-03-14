@@ -1,6 +1,5 @@
 @use '../base/variables' as *;
 
-
 nav{
     background-color: $primary-dark;
     width: 100%;
@@ -12,7 +11,7 @@ nav{
     ul{
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        align-items: bottom;
         padding: 0;
         margin: 0;
         
@@ -33,5 +32,5 @@ nav{
 }
 
 .nav-icon-tools{
-    margin-top: 0.25rem;
+    margin-top: 0.289rem;
 }
