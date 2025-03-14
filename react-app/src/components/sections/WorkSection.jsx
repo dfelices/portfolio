@@ -23,7 +23,6 @@ function WorkSection () {
                         className="portfolio-item"
                         onClick={(e) => {
                             e.preventDefault(); // Prevent navigation
-                            console.log("Selected Work:", work); // Check if work is being passed correctly
                             setSelectedWork(work); // Open overlay
                         }}
                         >

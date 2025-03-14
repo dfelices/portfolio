@@ -4,7 +4,7 @@ import '../styles/overlay.css'; // Adjust the path to match your file's location
 
 
 function WorksOverlay({ work, onClose }) {
-    console.log("Rendering Overlay with Work:", work);
+    
     return (
         <div className="overlay">
             <div className="overlay-content">
@@ -14,6 +14,7 @@ function WorksOverlay({ work, onClose }) {
                     alt={work.title.rendered || 'Work image'}
                 />
                 <h2>{work.title.rendered}</h2>
+
                 <div className="tools-list">
                     {work.acf?.work_tools?.length > 0 &&
                         work.acf.work_tools.map((tool) => (
@@ -22,19 +23,20 @@ function WorksOverlay({ work, onClose }) {
                             </span>
                         ))}
                 </div>
-                <p>{work.acf?.collaboration || 'No collaboration information available'}</p>
+
+                {work.acf?.collaboration && (<p>{work.acf.collaboration}</p>)}
                 
-                {work.acf?.roles && work.acf?.roles > 0 ? (
+                {work.acf?.roles?.length > 0 && (
                     <ul>
-                        {work.acf?.map((roleTitleObj, index) => (
-                            <li key={index}>{roleTitleObj.item}</li>
+                        {work.acf.roles.map((roleTitleObj, index) => (
+                            <li key={index}>{roleTitleObj.role_title}</li> // Access role_title correctly
                         ))}
                     </ul>
-                ) : (
-                    <p>No role information to display!</p>
                 )}
 
-                <p>{work.acf?.overview_description || 'No overview description available'}</p>
+                {work.acf?.overview_description && (
+                    <p>{work.acf.overview_description}</p>
+                )}
 
                 
             </div>
