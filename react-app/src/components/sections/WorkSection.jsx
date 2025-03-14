@@ -1,6 +1,6 @@
 import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
-import WorksOverlay from '../WorksOverlay';
+import WorksOverlay from '../../pages/WorksOverlay';
 import { useState } from 'react';
 
 function WorkSection () {
