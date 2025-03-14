@@ -5,14 +5,14 @@ function MobileNav(){
 
     return (
         <>
-            <nav className='mobile-site-navigation'>
+            <nav>
                 <ul>
                     <li>
                         <Link smooth to='/#home' >
                             <div className="nav-icon">
                                 <img src="icons/nav/home.svg" alt="home icon" />
                             </div>
-                            Home
+                            <p>Home</p>
                         </Link>
                     </li>
                     <li>
@@ -20,15 +20,15 @@ function MobileNav(){
                             <div className="nav-icon">
                                 <img src="icons/nav/work.svg" alt="work icon" />
                             </div>
-                            Work
+                            <p>Work</p>
                         </Link>
                     </li>
                     <li>
                         <Link smooth to='/#tools' >
-                            <div className="nav-icon">
+                            <div className="nav-icon-tools">
                                 <img src="icons/nav/tools.svg" alt="tools icon" />
                             </div>
-                            Tools
+                            <p>Tools</p>
                         </Link>
                     </li>
                     <li>
@@ -36,7 +36,7 @@ function MobileNav(){
                             <div className="nav-icon">
                                 <img src="icons/nav/about.svg" alt="about icon" />
                             </div>
-                            About
+                            <p>About</p>
                         </Link>
                     </li>
                     <li>
@@ -44,7 +44,7 @@ function MobileNav(){
                             <div className="nav-icon">
                                 <img src="icons/nav/contact.svg" alt="contact icon" />
                             </div>
-                            Contact
+                            <p>Contact</p>
                         </Link>
                     </li>
                 </ul>
