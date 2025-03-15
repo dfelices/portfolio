@@ -58,7 +58,7 @@
     height: auto;
 }
 
-.tools-list, .react-tabs__tab-panel ul{
+.tools-list, .react-tabs__tab-panel ul, .fun-list{
     @include flex-row(0.5rem);
     flex-wrap: wrap;
     row-gap: 0.5rem;
@@ -78,3 +78,7 @@
 
 }
 
+// About Section
+.fun{
+    @include item-chip($primary-dark, $strict-white)
+}
