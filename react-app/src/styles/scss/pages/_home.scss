@@ -33,6 +33,10 @@
 }
 
 // Work Section
+#work{
+    @include flex-column(1rem)
+}
+
 .portfolio-works-scroll{
     height: 840px;
     overflow: auto;
@@ -49,20 +53,28 @@
   }
 
 .portfolio-item{
+    @include flex-column(0.5rem);
     width: 100%;
     height: auto;
 }
 
-.tools-list{
+.tools-list, .react-tabs__tab-panel ul{
     @include flex-row(0.5rem);
     flex-wrap: wrap;
     row-gap: 0.5rem;
     width: 100%;
     height: auto;
+    padding: 0
 }
 
 .tool{
     @include item-chip($primary-dark, $accent-green)
 }
 
+// Tools Section
+.react-tabs__tab-list{
+    @include flex-row(1rem);
+    padding: 0;
+
+}
 

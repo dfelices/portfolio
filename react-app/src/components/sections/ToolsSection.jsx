@@ -2,7 +2,7 @@ import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
 import ProfessionalBio from '../professionalBio'
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
-// import "react-tabs/style/react-tabs.css";
+
 
 function ToolsSection (){
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-tool-category?per_page=100');
@@ -41,28 +41,28 @@ function ToolsSection (){
                 <TabPanel>
                     <ul>
                         {getAllTerms().map((term) => (
-                            <li key={term.id}>{term.name}</li>
+                            <li key={term.id} className='tool'>{term.name}</li>
                             ))}
                     </ul>
                 </TabPanel>
                 <TabPanel>
                     <ul>
                         {designTerms.map((term) => (
-                            <li key={term.id}>{term.name}</li>
+                            <li key={term.id} className='tool'>{term.name}</li>
                             ))}
                     </ul>
                 </TabPanel>
                 <TabPanel>
                     <ul>
                         {developmentTerms.map((term) => (
-                            <li key={term.id}>{term.name}</li>
+                            <li key={term.id} className='tool'>{term.name}</li>
                             ))}
                     </ul>
                 </TabPanel>
                 <TabPanel>
                     <ul>
                         {professionalHighlightsTerms.map((term) => (
-                            <li key={term.id}>{term.name}</li>
+                            <li key={term.id} className='tool'>{term.name}</li>
                             ))}
                     </ul>
                 </TabPanel>
