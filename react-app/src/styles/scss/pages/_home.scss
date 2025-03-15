@@ -13,3 +13,15 @@
     }
 }
 
+.icon {
+    fill: $contact-icon; /* Default color */
+    transition: fill 0.3s ease; 
+    width: 40px; /* Consistent sizing */
+    height: 40px;
+}
+
+.icon-link:hover .icon {
+    fill: $primary-dark; /* Color change on hover */
+}
+
+

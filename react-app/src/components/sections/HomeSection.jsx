@@ -20,28 +20,39 @@ function HomeSection (){
         {isMobile? 
             <>  
                 <section id='home'>
+
                     <div className="home-content">
+
                         <div className="home-name-title">
                             <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
                             <p className='profile-title'>{restData.title}</p>
                         </div>
-                        
+
                         <p className='tagline'>{`${restData.tagline}`}</p>
+                        
                     </div>
+
                     <ContactSection />
+
                 </section>
             </>
 
             :
 
             <section id='home'>
+
                 <div className="home-content">
+                    
                     <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
                     <p className='profile-title'>{restData.title}</p>
                     <p className='tagline'>{`${restData.tagline}`}</p>
+
                     <DesktopNav />
+
                 </div>
+
                 <ContactSection />
+            
             </section>
 
         
