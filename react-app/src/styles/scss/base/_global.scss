@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 @import 'normalize.css';
 
@@ -41,6 +42,11 @@ img{
 .site-wrapper {
     background-color: $primary-light;  
     padding: 2rem 1rem 5.625rem;
+	@include flex-column(4rem);
+
+	@media (min-width: $mobile){
+		@include flex-column(5rem)
+	}
 }
 
 

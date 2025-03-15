@@ -5,18 +5,27 @@
 /* Main
 --------------------------------------------- */
 
+// Home Section
 #home{
     @include flex-column(3rem);
+    @include size-auto-fit;
 
     .home-content{
         @include flex-column(1.5rem);
     }
 }
 
+
+// Contact Section
+.contact-icons{
+    display: flex;
+    column-gap: 2rem;
+}
+
 .icon {
     fill: $contact-icon; /* Default color */
     transition: fill 0.3s ease; 
-    width: 40px; /* Consistent sizing */
+    width: 40px;
     height: 40px;
 }
 

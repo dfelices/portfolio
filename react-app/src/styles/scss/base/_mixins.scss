@@ -8,3 +8,9 @@
         row-gap: $gap;
     }
 }
+
+@mixin size-auto-fit {
+    width: fit-content;
+    height: auto;
+}
+

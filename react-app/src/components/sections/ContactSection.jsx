@@ -5,7 +5,6 @@ import MailIcon from "../icons/MailIcon"
 import GitHubIcon from "../icons/GitHubIcon"
 
 
-
 function ContactSection (){
     const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);
 

@@ -4,9 +4,12 @@ import ToolsSection from '../components/sections/ToolsSection'
 import AboutSection from '../components/sections/AboutSection'
 import { restBase, useFetch } from '../utilities/Globals'
 import Loading from '../utilities/Loading'
+import { useMediaQuery } from 'react-responsive'
 import MobileNav from '../components/navigation/MobileNav'
 
 function PageHome(){
+    const isMobile = useMediaQuery({maxWidth: 768})
+
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-work');
 
     if (isLoading) return <Loading />;
@@ -21,7 +24,10 @@ function PageHome(){
                 <AboutSection />
             </div>
 
-            <MobileNav />
+            {isMobile ? (
+                <MobileNav />
+            ) : null}
+
         </>
 
         
