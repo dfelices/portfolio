@@ -8,12 +8,25 @@ nav{
     bottom: 0;
     z-index: 1000;
 
+    @media (min-width: $mobile){
+        background-color: $primary-light;
+        padding: 0;
+        position: relative;
+        z-index: 0;
+
+    }
+
     ul{
         display: flex;
         justify-content: space-around;
         align-items: bottom;
         padding: 0;
         margin: 0;
+
+        @media (min-width: $mobile){
+            flex-direction: column;
+
+        }
         
         li{
             p{
@@ -34,3 +47,4 @@ nav{
 .nav-icon-tools{
     margin-top: 0.289rem;
 }
+

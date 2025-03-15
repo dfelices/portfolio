@@ -4,3 +4,8 @@
 /* Main
 --------------------------------------------- */
 
+.home-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
