@@ -43,6 +43,9 @@ img{
 .site-wrapper {
     background-color: $primary-light;  
     padding: 2rem 1rem 5.625rem;
+}
+
+.site-wrapper, .section-scroll{
 	@include flex-column(4rem);
 
 	@media (min-width: $mobile){
