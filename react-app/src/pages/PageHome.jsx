@@ -19,9 +19,12 @@ function PageHome(){
         <>
             <div className='site-wrapper'>
                 <HomeSection />
-                <WorkSection works={restData}/>
-                <ToolsSection />
-                <AboutSection />
+                
+                <div className="section-scroll">
+                    <WorkSection works={restData}/>
+                    <ToolsSection />
+                    <AboutSection />
+                </div>
             </div>
 
             {isMobile ? (

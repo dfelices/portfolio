@@ -9,6 +9,7 @@ body {
     font-family: "Inter", sans-serif;
     color: $primary-dark;
     font-size: 1rem;
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,11 +18,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: clamp(48px, 5vw, 4.25rem);
+    font-size: clamp(3rem, 5vw, 4.25rem);
     transform: translateX(-2.5px);
 }
 
-h2 {font-size: clamps(40px, 5vw, 56px)
+h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem)
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
 
 }
 
@@ -33,9 +39,13 @@ ul{
     list-style: none;
 }
 
+.home-name-title{
+    line-height: 1.2;
+}
+
 .profile-title{
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 450;
 }
 
 .tagline{

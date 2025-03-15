@@ -26,7 +26,7 @@
 /* Elements
 --------------------------------------------- */
 .portfolio-item img{
-    width: 9.375rem;
+    width: 100%;
     height: auto;
 }
 
@@ -34,6 +34,7 @@ img{
     object-fit: cover;
     object-position: center center;
 }
+
 
 /*--------------------------------------------------------------
 # Layout

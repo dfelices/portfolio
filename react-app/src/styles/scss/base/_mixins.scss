@@ -9,8 +9,24 @@
     }
 }
 
+@mixin flex-row($gap: null) {
+    display: flex;
+
+    @if $gap {
+        column-gap: $gap;
+    }
+}
+
 @mixin size-auto-fit {
     width: fit-content;
     height: auto;
 }
 
+@mixin item-chip ($border-colour, $fill-colour){
+    @include flex-column();
+    flex-wrap: nowrap;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 2px solid $border-colour;
+    background-color: $fill-colour;
+}

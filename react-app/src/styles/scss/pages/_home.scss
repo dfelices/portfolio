@@ -7,19 +7,18 @@
 
 // Home Section
 #home{
-    @include flex-column(3rem);
+    @include flex-column(4rem);
     @include size-auto-fit;
+}
 
-    .home-content{
-        @include flex-column(1.5rem);
-    }
+.home-content{
+    @include flex-column(2rem);
 }
 
 
 // Contact Section
 .contact-icons{
-    display: flex;
-    column-gap: 2rem;
+    @include flex-row(2rem);
 }
 
 .icon {
@@ -31,6 +30,39 @@
 
 .icon-link:hover .icon {
     fill: $primary-dark; /* Color change on hover */
+}
+
+// Work Section
+.portfolio-works-scroll{
+    height: 840px;
+    overflow: auto;
+    @include flex-column(2rem);
+
+      /* Hide scrollbars */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+} 
+
+.portfolio-works-scroll::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in WebKit browsers */
+  }
+
+.portfolio-item{
+    width: 100%;
+    height: auto;
+}
+
+.tools-list{
+    @include flex-row(0.5rem);
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    width: 100%;
+    height: auto;
+}
+
+.tool{
+    @include item-chip($primary-dark, $accent-green)
 }
 
 

@@ -3,61 +3,67 @@ import Loading from "../../utilities/Loading"
 import WorksOverlay from '../../pages/WorksOverlay';
 import { useState } from 'react';
 
-function WorkSection () {
+function WorkSection() {
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-work?_embed');
     const [selectedWork, setSelectedWork] = useState(null);
 
     if (isLoading) return <Loading />;
     if (error) return <p>Error: {error}</p>;
 
-    return(
+    return (
         <>
-        <section id='work' className='portfolio-works'>
-            <h2>Work</h2>
-            {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
-                restData
-                    .filter((work) => work.acf?.show_in_portfolio?.includes("1"))
-                    .map((work) => (
-                        <a
-                        href="javascript:void(0);"
-                        key={work.id}
-                        className="portfolio-item"
-                        onClick={(e) => {
-                            e.preventDefault(); // Prevent navigation
-                            setSelectedWork(work); // Open overlay
-                        }}
-                        >
-                            <div className="portfolio-item">
-                                <h2>{work.title.rendered}</h2>
-                                <img
-                                    src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/150'}
-                                    alt={work.title.rendered || "Portfolio item image"}
-                                />
-                                <div className="tools-list">
-                                    {work.acf?.work_tools?.length > 0 && work.acf.work_tools.map((tool) => (
-                                        <span key={tool.term_id} className='tool'>
-                                            {tool.name}
-                                        </span>
-                                    ))}
+            <section id="work" className="portfolio-works">
+                <h2>Work</h2>
+                <div className="portfolio-works-scroll">
+                    {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
+                        restData
+                            .filter((work) => work.acf?.show_in_portfolio?.includes("1"))
+                            .map((work) => (
+                                <div
+                                    key={work.id}
+                                    className="portfolio-item"
+                                    role="button"
+                                    tabIndex={0} // Makes the div focusable
+                                    onClick={(e) => {
+                                        e.preventDefault(); // Prevent default behavior
+                                        setSelectedWork(work); // Open overlay
+                                    }}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            setSelectedWork(work); // Open overlay on Enter or Space
+                                        }
+                                    }}
+                                >
+                                    <h3>{work.title.rendered}</h3>
+                                    <img
+                                        src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/150'}
+                                        alt={work.title.rendered || "Portfolio item image"}
+                                    />
+                                    <div className="tools-list">
+                                        {work.acf?.work_tools?.length > 0 &&
+                                            work.acf.work_tools.map((tool) => (
+                                                <div key={tool.term_id} className="tool">
+                                                    {tool.name}
+                                                </div>
+                                            ))}
+                                    </div>
+                                    <p>More info</p>
                                 </div>
-                                <p>More info</p>
-                            </div>
-                        </a>
-                    ))
-                ) : (
-                    <p>No works to display at the moment.</p>
-                )}
-        </section>
+                            ))
+                    ) : (
+                        <p>No works to display at the moment.</p>
+                    )}
+                </div>
+            </section>
 
-        {selectedWork && (
-            <WorksOverlay
-                work={selectedWork}
-                onClose={() => setSelectedWork(null)} // Close overlay
-            />
-        )}
-
+            {selectedWork && (
+                <WorksOverlay
+                    work={selectedWork}
+                    onClose={() => setSelectedWork(null)} // Close overlay
+                />
+            )}
         </>
-    )
+    );
 }
 
-export default WorkSection
+export default WorkSection;
