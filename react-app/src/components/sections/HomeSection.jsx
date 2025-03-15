@@ -6,9 +6,10 @@ import DesktopNav from '../navigation/DesktopNav'
 
 
 function HomeSection (){
+    const isMobile = useMediaQuery({maxWidth: 768})
+
     const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);
 
-    const isMobile = useMediaQuery({maxWidth: 768})
 
     if (isLoading) return <Loading />;
     if (error) return <p>Error: {error}</p>;
@@ -20,13 +21,17 @@ function HomeSection (){
             <>  
                 <section id='home'>
                     <div className="home-content">
-                        <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
-                        <p className='profile-title'>{restData.title}</p>
+                        <div className="home-name-title">
+                            <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
+                            <p className='profile-title'>{restData.title}</p>
+                        </div>
+                        
                         <p className='tagline'>{`${restData.tagline}`}</p>
                     </div>
                     <ContactSection />
                 </section>
             </>
+
             :
 
             <section id='home'>
@@ -40,8 +45,8 @@ function HomeSection (){
             </section>
 
         
-            }
-        </>
+        }
+    </>
 
     )
 }

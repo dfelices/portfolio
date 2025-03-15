@@ -1,0 +1,10 @@
+@use './variables' as *;
+
+@mixin flex-column($gap: null) {
+    display: flex;
+    flex-direction: column;
+
+    @if $gap {
+        row-gap: $gap;
+    }
+}
