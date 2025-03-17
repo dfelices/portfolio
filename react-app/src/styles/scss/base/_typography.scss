@@ -30,6 +30,8 @@ h2 {
 h3 {
     font-size: clamp(1.25rem, 3vw, 1.25rem);
     line-height: 1.6;
+    font-weight: 400;
+    transition: font-weight 0.1s ease, transform 0.1s ease;
 }
 
 p{

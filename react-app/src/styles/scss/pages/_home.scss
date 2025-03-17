@@ -58,12 +58,23 @@
     // max-width: 400px;
     height: auto;
     background-color: $profile-item;
-    transition: background-color 0.5s ease; 
     border-radius: 6px;
+    border: solid 2px $primary-dark;
+    transition: background-color 0.1s ease, border-color 0.1s ease-in-out, border-width 0.1s ease-in-out;
     padding: 4px 6px;
 
     &:hover{
        background-color: $profile-item-hover;
+       border: solid 4px $primary-dark;
+
+       h3 {
+        font-weight: 500;
+       }
+       
+       .more-info-container p{
+        font-weight: 500;
+       }
+
     }
 
     .more-info-container svg {
