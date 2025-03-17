@@ -35,10 +35,12 @@ function WorkSection() {
                                     }}
                                 >
                                     <h3>{work.title.rendered}</h3>
-                                    <img
-                                        src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/150'}
-                                        alt={work.title.rendered || "Portfolio item image"}
-                                    />
+                                    <div className='portfolio-item-image-container'>
+                                        <img
+                                            src={work._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://placehold.co/150'}
+                                            alt={work.title.rendered || "Portfolio item image"}
+                                        />
+                                    </div>
                                     <div className="tools-list">
                                         {work.acf?.work_tools?.length > 0 &&
                                             work.acf.work_tools.map((tool) => (
@@ -47,7 +49,10 @@ function WorkSection() {
                                                 </div>
                                             ))}
                                     </div>
-                                    <p>More info</p>
+                                    <div className="more-info-container">
+                                        <p>More info</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z"/></svg>    
+                                    </div>
                                 </div>
                             ))
                     ) : (

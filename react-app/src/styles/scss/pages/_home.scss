@@ -54,8 +54,25 @@
 
 .portfolio-item{
     @include flex-column(0.5rem);
-    width: 100%;
+    width: fit-content;
+    // max-width: 400px;
     height: auto;
+    background-color: $profile-item;
+    transition: background-color 0.5s ease; 
+    border-radius: 6px;
+    padding: 4px 6px;
+
+    &:hover{
+       background-color: $profile-item-hover;
+    }
+
+    .more-info-container svg {
+        transition: transform 0.3s ease; // Smooth transform for the SVG
+      }
+    
+      &:hover .more-info-container svg {
+        transform: translateX(3px); // Slide icon slightly to the right
+      }
 }
 
 .tools-list, .react-tabs__tab-panel ul, .fun-list{
@@ -69,6 +86,17 @@
 
 .tool{
     @include item-chip($primary-dark, $accent-green)
+}
+
+.more-info-container{
+    @include flex-row (2px);
+    align-items: center;
+
+    svg{
+        fill: "#011627";
+        width: 16px;
+        height: 16px;
+    }
 }
 
 // Tools Section

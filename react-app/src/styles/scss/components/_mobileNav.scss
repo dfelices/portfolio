@@ -38,13 +38,16 @@ nav{
 
 }
 
-.nav-icon{
+
+.nav-icon {
     display: flex;
     justify-content: center;
-    margin-bottom: 0.25rem;
+    
+    &:not(.nav-icon-tools) {
+        margin-bottom: 0.25rem;
+    }
 }
 
 .nav-icon-tools{
-    margin-top: 0.289rem;
+    transform: translateY(+2.25px);
 }
-
