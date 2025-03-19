@@ -117,6 +117,7 @@
 
 .react-tabs__tab-list{
     @include flex-row(1rem);
+    // flex-wrap: wrap;
     padding: 0;
     margin: 0;
     font-size: 1.125rem;
@@ -137,15 +138,16 @@
 
 .react-tabs__tab--selected{
     background-color: $accent-green;
-    border: none;
-    border-bottom: 2px solid transparent;
+    border: solid 2px $primary-dark;
+    border-bottom: none;
 }
 
 .react-tabs__tab-panel--selected{
-    background-color: $accent-green;
+    // background-color: $accent-green;
+    border: solid 2px $primary-dark;
     margin-top: -2px;
     padding: 0.75rem;
-    border-radius: 6px
+    border-radius: 0 0 6px 6px;
 }
 
 .tools-scroll{
