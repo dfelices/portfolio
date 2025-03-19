@@ -37,42 +37,52 @@ function ToolsSection (){
                 <Tabs>
                     <TabList>
                         {isAbove480 && <Tab>All</Tab>}
-                        <Tab>Design</Tab>
                         <Tab> {isAbove480? 'Development' : 'Dev'} </Tab>
+                        <Tab>Design</Tab>
                         <Tab>Qualities</Tab>
                     </TabList>
 
                     {isAbove480 && (
+                        <div className="tab-contain">
+                            <TabPanel>
+                                <ul>
+                                    {getAllTerms().map((term) => (
+                                        <li key={term.id} className='tool'>{term.name}</li>
+                                        ))}
+                                </ul>
+                            </TabPanel>
+                        </div>
+                    )}
+
+                    <div className="tab-contain">
                         <TabPanel>
                             <ul className='tools-scroll'>
-                                {getAllTerms().map((term) => (
+                                {developmentTerms.map((term) => (
                                     <li key={term.id} className='tool'>{term.name}</li>
                                     ))}
                             </ul>
                         </TabPanel>
-                    )}
+                    </div>
 
-                    <TabPanel>
-                        <ul className='tools-scroll'>
-                            {designTerms.map((term) => (
-                                <li key={term.id} className='tool'>{term.name}</li>
-                                ))}
-                        </ul>
-                    </TabPanel>
-                    <TabPanel>
-                        <ul className='tools-scroll'>
-                            {developmentTerms.map((term) => (
-                                <li key={term.id} className='tool'>{term.name}</li>
-                                ))}
-                        </ul>
-                    </TabPanel>
-                    <TabPanel>
-                        <ul className='tools-scroll'>
-                            {qualitiesTerms.map((term) => (
-                                <li key={term.id} className='tool'>{term.name}</li>
-                                ))}
-                        </ul>
-                    </TabPanel>
+                    <div className="tab-contain">
+                        <TabPanel>
+                            <ul className='tools-scroll'>
+                                {designTerms.map((term) => (
+                                    <li key={term.id} className='tool'>{term.name}</li>
+                                    ))}
+                            </ul>
+                        </TabPanel>
+                    </div>
+
+                    <div className="tab-contain">
+                        <TabPanel>
+                            <ul className='tools-scroll'>
+                                {qualitiesTerms.map((term) => (
+                                    <li key={term.id} className='tool'>{term.name}</li>
+                                    ))}
+                            </ul>
+                        </TabPanel>
+                    </div>
                 </Tabs>
             </div>
         </section>
