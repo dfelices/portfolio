@@ -10,17 +10,21 @@ function AboutSection (){
     return(
         <section id='about'>
             <h2>About</h2>
-            <p>{restData.personal_bio}</p>
+            <div className="about-content">
+                <p>{restData.personal_bio}</p>
+                <p>These are a few of my favourite things...</p>
 
-            {restData.fun_stuff && restData.fun_stuff.length > 0 ? (
-                <ul className='fun-list'>
-                    {restData.fun_stuff.map((itemObj, index) => (
-                        <li key={index} className='fun'>{itemObj.item}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No fun stuff to display!</p>
-            )}
+                {restData.fun_stuff && restData.fun_stuff.length > 0 ? (
+                    <ul className='fun-list'>
+                        {restData.fun_stuff.map((itemObj, index) => (
+                            <li key={index} className='fun'>{itemObj.item}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No fun stuff to display!</p>
+                )}
+            </div>
+
         </section>
     )
 }

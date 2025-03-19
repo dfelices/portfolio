@@ -166,6 +166,15 @@
 
 
 // About Section
+
+#about{
+    @include flex-column(2rem)
+}
+
+.about-content{
+    @include flex-column(1rem)
+}
+
 .fun{
     @include item-chip($primary-dark, $strict-white, $primary-dark)
 }
