@@ -27,46 +27,48 @@ function ToolsSection (){
     const professionalHighlightsTerms = getTermsByParent("Professional Highlights")
 
     return(
-        <section id='tools' className='tools-section'>
-            <h2>Tools</h2>
-            <ProfessionalBio />
-            <Tabs>
-                <TabList>
-                    <Tab>All</Tab>
-                    <Tab>Design</Tab>
-                    <Tab>Development</Tab>
-                    <Tab>Professional Highlights</Tab>
-                </TabList>
+        <section id='tools'>
+            <div className="tools-section">
+                <h2>Tools</h2>
+                <ProfessionalBio />
+                <Tabs>
+                    <TabList>
+                        <Tab>All</Tab>
+                        <Tab>Design</Tab>
+                        <Tab>Development</Tab>
+                        <Tab>Professional Highlights</Tab>
+                    </TabList>
 
-                <TabPanel>
-                    <ul>
-                        {getAllTerms().map((term) => (
-                            <li key={term.id} className='tool'>{term.name}</li>
-                            ))}
-                    </ul>
-                </TabPanel>
-                <TabPanel>
-                    <ul>
-                        {designTerms.map((term) => (
-                            <li key={term.id} className='tool'>{term.name}</li>
-                            ))}
-                    </ul>
-                </TabPanel>
-                <TabPanel>
-                    <ul>
-                        {developmentTerms.map((term) => (
-                            <li key={term.id} className='tool'>{term.name}</li>
-                            ))}
-                    </ul>
-                </TabPanel>
-                <TabPanel>
-                    <ul>
-                        {professionalHighlightsTerms.map((term) => (
-                            <li key={term.id} className='tool'>{term.name}</li>
-                            ))}
-                    </ul>
-                </TabPanel>
-            </Tabs>
+                    <TabPanel>
+                        <ul className='tools-scroll'>
+                            {getAllTerms().map((term) => (
+                                <li key={term.id} className='tool'>{term.name}</li>
+                                ))}
+                        </ul>
+                    </TabPanel>
+                    <TabPanel>
+                        <ul className='tools-scroll'>
+                            {designTerms.map((term) => (
+                                <li key={term.id} className='tool'>{term.name}</li>
+                                ))}
+                        </ul>
+                    </TabPanel>
+                    <TabPanel>
+                        <ul className='tools-scroll'>
+                            {developmentTerms.map((term) => (
+                                <li key={term.id} className='tool'>{term.name}</li>
+                                ))}
+                        </ul>
+                    </TabPanel>
+                    <TabPanel>
+                        <ul className='tools-scroll'>
+                            {professionalHighlightsTerms.map((term) => (
+                                <li key={term.id} className='tool'>{term.name}</li>
+                                ))}
+                        </ul>
+                    </TabPanel>
+                </Tabs>
+            </div>
         </section>
     )
 }

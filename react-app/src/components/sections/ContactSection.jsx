@@ -13,7 +13,7 @@ function ContactSection (){
 
     return(
         <>
-        <div className='contact-icons'>
+        <div id='contact' className='contact-icons'>
             {restData.contact_links.map((link, index) => {
                 // Dynamically render the appropriate inline SVG icon
                 let IconComponent;

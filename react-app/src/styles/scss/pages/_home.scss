@@ -50,7 +50,7 @@
 
 .portfolio-works-scroll::-webkit-scrollbar {
     display: none; /* Hides scrollbar in WebKit browsers */
-  }
+}
 
 .portfolio-item{
     @include flex-column(0.5rem);
@@ -60,7 +60,7 @@
     background-color: $profile-item;
     border-radius: 6px;
     border: solid 2px $primary-dark;
-    transition: background-color 0.1s ease, border-color 0.1s ease-in-out, border-width 0.1s ease-in-out;
+    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, border-width 0.1s ease-in-out;
     padding: 4px 6px;
 
     &:hover{
@@ -95,8 +95,8 @@
     padding: 0
 }
 
-.tool{
-    @include item-chip($primary-dark, $accent-green)
+.portfolio-item .tool{
+    @include item-chip($primary-dark, $accent-green, $primary-dark)
 }
 
 .more-info-container{
@@ -111,13 +111,59 @@
 }
 
 // Tools Section
+.tools-section{
+    @include flex-column(2rem)
+}
+
 .react-tabs__tab-list{
     @include flex-row(1rem);
     padding: 0;
-
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-bottom: 2px solid $accent-green;
 }
+
+.react-tabs__tab{
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+    padding: 4px 8px;
+}
+
+.react-tabs__tab-panel--selected .tool {
+    @include item-chip($primary-dark, $primary-dark, $strict-white);
+    
+}
+
+.react-tabs__tab--selected{
+    background-color: $accent-green;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.react-tabs__tab-panel--selected{
+    background-color: $accent-green;
+    margin-top: -2px;
+    padding: 0.75rem;
+    border-radius: 6px
+}
+
+.tools-scroll{
+    height: 60px;
+    width: 100%;
+    overflow: auto;
+
+      /* Hide scrollbars */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.tools-scroll::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in WebKit browsers */
+}
+
 
 // About Section
 .fun{
-    @include item-chip($primary-dark, $strict-white)
+    @include item-chip($primary-dark, $strict-white, $primary-dark)
 }
