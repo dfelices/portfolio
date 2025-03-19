@@ -50,14 +50,59 @@ img{
 .site-wrapper {
     background-color: $primary-light;  
     padding: 2rem 1rem 5.625rem;
-}
-
-.site-wrapper, .section-scroll{
-	@include flex-column(4rem);
 
 	@media (min-width: $mobile){
-		@include flex-column(5rem)
+		@include flex-row(clamp(4rem, 7vw, 8rem));
+		padding-left: clamp(1rem, 9vw, 19.75rem);
+		padding-right: clamp(1rem, 9vw, 19.75rem);
+		padding-top: clamp(4.5rem, 4vw, 6rem);
+		padding-bottom: clamp(4.5rem, 4vw, 6rem);
 	}
+}
+
+.section-sticky{
+	width: fit-content;
+	height: auto;
+
+	@media (min-width: $mobile){
+		width: 35%;
+	}
+}
+
+	// @include flex-column(4rem);
+	// /* Hide scrollbars */
+	// scrollbar-width: none; /* For Firefox */
+	// -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+	// .section-scroll::-webkit-scrollbar {
+	// 	display: none; /* Hides scrollbar in WebKit browsers */
+	// }
+
+
+ @media (min-width: $mobile){
+	.section-scroll{
+		@include flex-column(5rem);
+		max-height: 790px;
+		width: 60%;
+		overflow: auto;
+		padding-left: clamp(2rem, 2vw, 4rem);
+		padding-right: clamp(2rem, 2vw, 4rem);
+
+		  &::-webkit-scrollbar {
+			width: 10px; // Scrollbar width for WebKit browsers
+		  }
+	  
+		  &::-webkit-scrollbar-thumb {
+			background-color: $primary-dark; // Scrollbar thumb color
+			border-radius: 2px;
+		  }
+	  
+		  &::-webkit-scrollbar-track {
+			background-color: $accent-green; // Scrollbar track color
+		  }
+	}
+
+
 }
 
 

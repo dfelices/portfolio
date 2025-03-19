@@ -8,7 +8,7 @@ import { useMediaQuery } from 'react-responsive'
 function ToolsSection (){
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-tool-category?per_page=100');
 
-    const isAbove480 = useMediaQuery({ minWidth: 481 });
+    const isAbove768 = useMediaQuery({ minWidth: 769 });
 
     if (isLoading) return <Loading />;
     if (error) return <p>Error: {error}</p>;
@@ -36,13 +36,13 @@ function ToolsSection (){
                 <ProfessionalBio />
                 <Tabs>
                     <TabList>
-                        {isAbove480 && <Tab>All</Tab>}
-                        <Tab> {isAbove480? 'Development' : 'Dev'} </Tab>
+                        {isAbove768 && <Tab>All</Tab>}
+                        <Tab> {isAbove768? 'Development' : 'Dev'} </Tab>
                         <Tab>Design</Tab>
                         <Tab>Qualities</Tab>
                     </TabList>
 
-                    {isAbove480 && (
+                    {isAbove768 && (
                         <div className="tab-contain">
                             <TabPanel>
                                 <ul>

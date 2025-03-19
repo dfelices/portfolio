@@ -18,7 +18,9 @@ function PageHome(){
     return(
         <>
             <div className='site-wrapper'>
-                <HomeSection />
+                <div className="section-sticky">
+                    <HomeSection />
+                </div>
                 
                 <div className="section-scroll">
                     <WorkSection works={restData}/>

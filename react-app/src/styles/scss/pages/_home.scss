@@ -175,6 +175,11 @@
     @include flex-column(1rem)
 }
 
+.favourite-tagline{
+    font-style: italic;
+    font-weight: 500;
+}
+
 .fun{
     @include item-chip($primary-dark, $strict-white, $primary-dark)
 }

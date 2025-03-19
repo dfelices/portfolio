@@ -12,7 +12,7 @@ function AboutSection (){
             <h2>About</h2>
             <div className="about-content">
                 <p>{restData.personal_bio}</p>
-                <p>These are a few of my favourite things...</p>
+                <p className='favourite-tagline'>These are a few of my favourite things...</p>
 
                 {restData.fun_stuff && restData.fun_stuff.length > 0 ? (
                     <ul className='fun-list'>
