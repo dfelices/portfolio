@@ -32,10 +32,10 @@ function ContactSection (){
                         key={index}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="icon-link"
+                        className="contact-icon-link"
                     >
                         {IconComponent ? (
-                            <IconComponent className="icon" />
+                            <IconComponent className="contact-icon" />
                         ) : (
                             <span>Icon not available</span> // Fallback in case no icon matches
                         )}

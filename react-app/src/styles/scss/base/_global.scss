@@ -47,12 +47,19 @@ img{
 # Layout
 --------------------------------------------------------------*/
 
+body{
+    background-color: $primary-light;
+	@include flex-column();
+	align-items: center;
+}
+
 .site-wrapper {
-    background-color: $primary-light;  
     padding: 2rem 1rem 5.625rem;
 
 	@media (min-width: $mobile){
 		@include flex-row(clamp(4rem, 7vw, 8rem));
+		max-width: 75rem;
+
 		padding-left: clamp(1rem, 9vw, 19.75rem);
 		padding-right: clamp(1rem, 9vw, 19.75rem);
 		padding-top: clamp(4.5rem, 4vw, 6rem);
@@ -69,21 +76,12 @@ img{
 	}
 }
 
-	// @include flex-column(4rem);
-	// /* Hide scrollbars */
-	// scrollbar-width: none; /* For Firefox */
-	// -ms-overflow-style: none; /* For Internet Explorer and Edge */
-
-	// .section-scroll::-webkit-scrollbar {
-	// 	display: none; /* Hides scrollbar in WebKit browsers */
-	// }
-
 
  @media (min-width: $mobile){
 	.section-scroll{
 		@include flex-column(5rem);
-		max-height: 790px;
-		width: 60%;
+		max-height: 780px;
+		width: 50%;
 		overflow: auto;
 		padding-left: clamp(2rem, 2vw, 4rem);
 		padding-right: clamp(2rem, 2vw, 4rem);

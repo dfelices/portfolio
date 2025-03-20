@@ -15,20 +15,31 @@
     @include flex-column(2rem);
 }
 
+.desktop-site-navigation ul{
+    @include flex-column(1.25rem)
+
+}
+
+.desktop-nav-link{
+    @include flex-row(0.375rem);
+    font-size: 22px;
+}
+
+
 
 // Contact Section
 .contact-icons{
     @include flex-row(2rem);
 }
 
-.icon {
+.contact-icon {
     fill: $contact-icon; /* Default color */
     transition: fill 0.3s ease; 
     width: 40px;
     height: 40px;
 }
 
-.icon-link:hover .icon {
+.contact-icon-link:hover{
     fill: $primary-dark; /* Color change on hover */
 }
 
