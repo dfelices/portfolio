@@ -8,8 +8,9 @@ function DesktopNav() {
                 <ul>
                     <li>
                         <Link smooth to='/#work' className='desktop-nav-link' >
-                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-icon'>
-                                <circle r="12" cx="14" cy="14" fill="#DBF8A0" stroke="#011627" stroke-width="3" />
+                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-link'>
+                                <circle r="12" cx="14" cy="14" fill="#DBF8A0" stroke="#011627" 
+                                stroke-width="3" />
                             </svg>
 
                             Work

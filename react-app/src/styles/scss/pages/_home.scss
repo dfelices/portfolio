@@ -8,12 +8,19 @@
 // Home Section
 #home{
     @include flex-column(4rem);
-    @include size-auto-fit;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.desktop-home-content{
+    @include flex-column(clamp(6rem, 8vw, 8rem));
 }
 
 .home-content{
     @include flex-column(2rem);
 }
+
 
 .desktop-site-navigation ul{
     @include flex-column(1.25rem)
@@ -25,11 +32,31 @@
     font-size: 22px;
 }
 
+.desktop-nav-icon circle {
+    fill: #FFFFFF;
+    stroke: #011627;
+}
+
+.desktop-nav-link:hover, 
+.desktop-nav-link:focus, 
+.desktop-nav-link:active{
+    circle {
+        fill: #DBF8A0; // New inner color on hover, focus, or active
+        stroke: #011627;
+    }
+}
+
+
 
 
 // Contact Section
 .contact-icons{
     @include flex-row(2rem);
+    padding-bottom: 4rem;
+
+    @media (min-width: $mobile){
+        padding-bottom: 0;
+    }
 }
 
 .contact-icon {
@@ -75,8 +102,8 @@
     padding: 4px 6px;
 
     &:hover{
-       background-color: $profile-item-hover;
-       border: solid 4px $primary-dark;
+       background-color: $accent-green;
+       border: solid 2.75px $primary-dark;
 
        h3 {
         font-weight: 500;
@@ -85,6 +112,10 @@
        .more-info-container p{
         font-weight: 500;
        }
+
+       .tool {
+        @include item-chip($primary-dark, $strict-white, $primary-dark);
+    }
 
     }
 
@@ -95,6 +126,11 @@
       &:hover .more-info-container svg {
         transform: translateX(3px); // Slide icon slightly to the right
       }
+
+    .tool {
+        @include item-chip($primary-dark, $accent-green, $primary-dark); // Default styles
+    }
+
 }
 
 .tools-list, .react-tabs__tab-panel ul, .fun-list{
@@ -104,10 +140,6 @@
     width: 100%;
     height: auto;
     padding: 0
-}
-
-.portfolio-item .tool{
-    @include item-chip($primary-dark, $accent-green, $primary-dark)
 }
 
 .more-info-container{
@@ -124,6 +156,10 @@
 // Tools Section
 .tools-section{
     @include flex-column(2rem)
+}
+
+.react-tabs{
+    padding-right: 12px;
 }
 
 .react-tabs__tab-list{
@@ -154,11 +190,12 @@
 .react-tabs__tab-panel--selected{
     border: solid 2px $primary-dark;
     margin-top: -2px;
-    padding: 0.75rem;
+    padding: 10px 12px;
     border-radius: 0 0 6px 6px;
-    height: 150px;
-    width: fit-content;
+    height: 110px;
+    width: 100%;
     overflow: auto;
+    background-color: $strict-white;
 
       /* Hide scrollbars */
     scrollbar-width: none; /* For Firefox */

@@ -41,15 +41,20 @@ function HomeSection (){
 
             <section id='home'>
 
-                <div className="home-content">
-                    
-                    <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
-                    <p className='profile-title'>{restData.title}</p>
-                    <p className='tagline'>{`${restData.tagline}`}</p>
+                <div className="desktop-home-content">
+                    <div className="home-content">
+                        
+                        <div>
+                            <h1>{`${restData.first_name} ${restData.last_name}`}</h1>
+                            <p className='profile-title'>{restData.title}</p>
+                        </div>
+                        <p className='tagline'>{`${restData.tagline}`}</p>
+
+                    </div>
 
                     <DesktopNav />
-
                 </div>
+
 
                 <ContactSection />
             

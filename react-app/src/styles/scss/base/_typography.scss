@@ -19,8 +19,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: clamp(3rem, 5vw, 4.25rem);
+    font-size: clamp(2.75rem, 3.15vw, 4.5rem);
     transform: translateX(-2.5px);
+    white-space: nowrap;
 }
 
 h2 {
