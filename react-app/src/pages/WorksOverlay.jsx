@@ -1,12 +1,30 @@
-// WorksOverlay.js
-import React from 'react';
+import ReactDOM from "react-dom";
+import { React, useEffect} from 'react';
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
 
 function WorksOverlay({ work, onClose }) {
+    const overlayContainer = document.body; // Target container for the portal
 
+    // Make sure the container exists before rendering the portal
+    if (!overlayContainer) {
+        console.error("Error: Target container is not available in the DOM.");
+        return null;
+    }
+    
+    useEffect(() => {
+        function handleKeyDown(event) {
+            if (event.key === "Escape") {
+                onClose();
+            }
+        }
+        window.addEventListener("keydown", handleKeyDown);
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [onClose]);
 
-    return (
-        <div className="overlay">
+    return ReactDOM.createPortal (
+        <div id='overlay' className="overlay">
             <div className="overlay-content">
                 <button className="close-btn" onClick={onClose}>Close</button>
                 <img
@@ -80,13 +98,17 @@ function WorksOverlay({ work, onClose }) {
                             </TabPanel>
                         ))}
                     </Tabs>
+
+                    
                 )}
 
                 
 
                 
             </div>
-        </div>
+        </div>,
+
+        document.body
     );
 }
 

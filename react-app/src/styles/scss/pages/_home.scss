@@ -100,10 +100,12 @@
     border: solid 2px $primary-dark;
     transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, border-width 0.1s ease-in-out;
     padding: 4px 6px;
+    
 
     &:hover{
        background-color: $accent-green;
        border: solid 2.75px $primary-dark;
+       box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);/* Adds a subtle shadow for better aesthetics */
 
        h3 {
         font-weight: 500;

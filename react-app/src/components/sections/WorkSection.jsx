@@ -12,7 +12,8 @@ function WorkSection() {
 
     return (
         <>
-            <section id="work" className="portfolio-works">
+            <section id="work" className="portfolio-works" aria-hidden={!!selectedWork}>
+
                 <h2>Work</h2>
                 <div className="portfolio-works-scroll">
                     {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
