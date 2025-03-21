@@ -84,16 +84,16 @@ function WorksOverlay({ work, onClose }) {
                     </div>
 
                     {work.acf?.overview_description && (
-                            <>
+                            <div className="overlay-description">
                                 <p className="overlay-sub-heading">Overview and Requirements:</p>                            
                                 <p>{work.acf.overview_description}</p>
-                            </>
+                            </div>
                     )}
 
                     {work.acf?.["work-tabs"]?.length > 0 && ( // Only render tabs if they exist
-                        <Tabs className={"overlay-tabs"}>
+                        <Tabs>
                             {/* Render Tab Titles */}
-                            <TabList className={"overlay-tablist"}>
+                            <TabList>
                                 {work.acf["work-tabs"].map((tab, index) => (
                                     <Tab key={index} className={"overlay-tab"}>{tab.tab_title}</Tab>
                                 ))}

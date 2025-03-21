@@ -102,7 +102,7 @@ body{
 		padding-right: clamp(2rem, 2vw, 4rem);
 
 		  &::-webkit-scrollbar {
-			width: 10px; // Scrollbar width for WebKit browsers
+			width: 12px; // Scrollbar width for WebKit browsers
 		  }
 	  
 		  &::-webkit-scrollbar-thumb {
@@ -112,6 +112,7 @@ body{
 	  
 		  &::-webkit-scrollbar-track {
 			background-color: $accent-green; // Scrollbar track color
+			border: solid 2px $primary-dark;
 		  }
 	}
 

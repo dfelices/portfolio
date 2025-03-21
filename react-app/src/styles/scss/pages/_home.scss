@@ -165,7 +165,7 @@
 }
 
 .react-tabs__tab-list{
-    @include flex-row(1rem);
+    @include flex-row();
     padding: 0;
     margin: 0;
     font-size: 1.125rem;
@@ -196,6 +196,7 @@
     border-radius: 0 0 6px 6px;
     height: 110px;
     width: 100%;
+    max-width: fit-content;
     overflow: auto;
     background-color: $strict-white;
 
