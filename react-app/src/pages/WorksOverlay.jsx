@@ -40,7 +40,7 @@ function WorksOverlay({ work, onClose }) {
                 
                 <div className="acf-text">
 
-                    <div className="portfolio-item-links">
+                    <div className="overlay-links">
                         <div className="live-site-link">
                             {work.acf?.live_site_link && (<a href={work.acf.live_site_link}>Live Site</a>)}
                         </div>
@@ -49,61 +49,61 @@ function WorksOverlay({ work, onClose }) {
                         </div>
                     </div>
 
-                    <div className="portfolio-item-intro">
+                    <div className="overlay-intro">
 
                         <h2>{work.title.rendered}</h2>
-                        <div className="portfolio-item-intro-tools-list">
+                        <div className="overlay-tools-list">
                             {work.acf?.work_tools?.length > 0 &&
                                 work.acf.work_tools.map((tool) => (
-                                    <span key={tool.term_id} className="tool">
+                                    <span key={tool.term_id} className="overlay-tool">
                                         {tool.name}
                                     </span>
                                 ))}
                         </div>
 
-                        {work.acf?.collaboration && (
-                                <>
-                                    <p>Collaboration:</p>
+                        <div className="overlay-collab-roles">
+                            {work.acf?.collaboration && (
+                                <div className="overlay-collab">
+                                    <p className="overlay-sub-heading">Collaboration:</p>
                                     <p>{work.acf.collaboration}</p>
-                                </>
-                        )}
+                                </div>
+                            )}
 
-                        {work.acf?.roles?.length > 0 && (
-                                <>
-                                    <p>{`Role(s):`}</p>
-                                
+                            {work.acf?.roles?.length > 0 && (
+                                <div className="overlay-roles">
+                                    <p className="overlay-sub-heading">{`Role(s):`}</p>
                                     <ul>
                                         {work.acf.roles.map((roleTitleObj, index) => (
                                             <li key={index}>{roleTitleObj.role_title}</li> // Access role_title correctly
-                                        ))}
+                                            ))}
                                     </ul>
-                                </>
-
-                        )}
+                                </div>
+                            )}
+                        </div>
 
                     </div>
 
                     {work.acf?.overview_description && (
                             <>
-                                <p>Overview and Requirements:</p>                            
+                                <p className="overlay-sub-heading">Overview and Requirements:</p>                            
                                 <p>{work.acf.overview_description}</p>
                             </>
                     )}
 
                     {work.acf?.["work-tabs"]?.length > 0 && ( // Only render tabs if they exist
-                        <Tabs>
+                        <Tabs className={"overlay-tabs"}>
                             {/* Render Tab Titles */}
-                            <TabList>
+                            <TabList className={"overlay-tablist"}>
                                 {work.acf["work-tabs"].map((tab, index) => (
-                                    <Tab key={index}>{tab.tab_title}</Tab>
+                                    <Tab key={index} className={"overlay-tab"}>{tab.tab_title}</Tab>
                                 ))}
                             </TabList>
 
                             {/* Render Tab Content */}
                             {work.acf["work-tabs"].map((tab, index) => (
-                                <TabPanel key={index}>
+                                <TabPanel key={index} className={"overlay-tabpanel"}>
                                     {tab.tab_content?.map((contentItem, i) => (
-                                        <div key={i} className="tab-content-item">
+                                        <div key={i} className="overlay-tab-content-item">
                                             {/* Handle "Text_Feature" Layout */}
                                             {contentItem.acf_fc_layout === "Text_Feature" && (
                                                 <div>
@@ -129,13 +129,12 @@ function WorksOverlay({ work, onClose }) {
                             ))}
                         </Tabs>
 
-                        
                     )}
                 </div>
 
                 
 
-                
+            <a href="">Back to top</a>
             </div>
         </div>,
 

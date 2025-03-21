@@ -14,7 +14,7 @@
 
 
 .desktop-home-content{
-    @include flex-column(clamp(6rem, 8vw, 8rem));
+    @include flex-column(clamp(4rem, 4vw, 5rem));
 }
 
 .home-content{

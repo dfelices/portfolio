@@ -18,7 +18,8 @@
 }
 
 @mixin size-auto-fit {
-    width: fit-content;
+    width: 100%;
+    max-width: fit-content;
     height: auto;
 }
 

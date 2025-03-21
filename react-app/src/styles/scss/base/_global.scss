@@ -60,6 +60,7 @@ body{
     background-color: $primary-light;
 	@include flex-column();
 	align-items: center;
+	letter-spacing: 0.03em;
 }
 
 .site-wrapper {

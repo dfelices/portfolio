@@ -28,7 +28,7 @@
 
 
     @media (min-width: $mobile){
-    width: 85vw; 
+    width: 70vw; 
     height: 85vh;
     padding: 20px;
     border-radius: 4px;
@@ -49,7 +49,7 @@
 
 .top-bar{
     background-color: $primary-dark;
-    width: 100%;
+    width: fit-content;
     height: 2.5rem;
     padding: 0.5rem 0;
     position: fixed;
@@ -65,9 +65,13 @@
 .overlay-image{
     @include size-auto-fit;
     margin-top: 4rem;
+    // overflow: hidden;
 
     img {
         width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
     }
 }
 
@@ -75,7 +79,7 @@
     padding: 0 1rem 2rem;
 }
 
-.portfolio-item-links{
+.overlay-links{
     @include flex-row();
     justify-content: space-evenly;
     padding: 1.5rem 0;
@@ -93,13 +97,87 @@
     width: fit-content;
 }
 
-.portfolio-item-intro{
+.overlay-intro{
     @include flex-column();
     align-items: center;
-
-    
 }
 
+.overlay-tool{
+    padding: 2px 6px;
+    font-size: 1.125rem;
 
+    &:not(:last-of-type) {
+        border-right: solid 2px $primary-light;
+    }
 
+    &:last-of-type {
+        border-right: none;
+    }
+}
 
+.overlay-collab-roles{
+    @include flex-column();
+    margin-top: clamp(2rem, 2vw, 3rem);
+}
+
+.overlay-sub-heading{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.overlay-collab{
+    @include flex-row(0.5rem);
+}
+
+.overlay-roles{
+    @include flex-row(0.5rem);
+    justify-content: center;
+    @include size-auto-fit;
+
+    ul{
+        margin: 0;
+        padding: 0;
+        @include size-auto-fit;
+        
+
+        li{
+            display: inline-block;
+            &::after {
+                content: ","; // Add a comma after each list item
+                margin-right: 4px; // Optional: Add spacing after the comma
+            }
+    
+            &:last-child::after {
+                content: ""; // Remove the comma for the last item
+            }
+        }
+    }
+}
+
+.overlay-tablist{
+    @include flex-row();
+    margin: 0;
+    padding: 0;
+    @include size-auto-fit;
+}
+
+.overlay-tab{
+    @include size-auto-fit;
+    padding: 6px 10px;
+    color: $primary-dark;
+    background-color: $accent-green-text;
+    border: none;
+
+    &.react-tabs__tab--selected{
+        background-color: $accent-green;
+    }
+}
+
+.overlay-tabpanel{
+    @include size-auto-fit;
+    color: $primary-dark;
+
+    &.react-tabs__tab-panel--selected{
+        background-color: $accent-green
+    }
+}
