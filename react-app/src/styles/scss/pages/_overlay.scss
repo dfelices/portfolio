@@ -16,11 +16,90 @@
 }
 
 .overlay-content {
-    background-color: #fff;
-    width: 85vw; /* Content width is 85% of the viewport width */
-    height: 85vh; /* Content height is 85% of the viewport height */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for better aesthetics */
+    background-color: $primary-dark;
+    color: $primary-light;
+    width: 100vw;
+    height: 100vh;
     overflow-y: auto; /* Allows scrolling if content overflows vertically */
+    /* Hide scrollbars */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+
+
+    @media (min-width: $mobile){
+    width: 85vw; 
+    height: 85vh;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+
+    @include flex-column();
+    align-items: center;
+
+    }
+
+
 }
+
+.overlay-content::-webkit-scrollbar{
+    display: none; /* Hides scrollbar in WebKit browsers */
+}
+
+.top-bar{
+    background-color: $primary-dark;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem 0;
+    position: fixed;
+    @include flex-row();
+    justify-content: end;
+}
+
+.close-btn svg{
+    fill: $primary-light;
+    padding: 8px;
+}
+
+.overlay-image{
+    @include size-auto-fit;
+    margin-top: 4rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+.acf-text{
+    padding: 0 1rem 2rem;
+}
+
+.portfolio-item-links{
+    @include flex-row();
+    justify-content: space-evenly;
+    padding: 1.5rem 0;
+    width: 100%;
+    height: auto;
+}
+
+.live-site-link{
+    @include item-chip($primary-dark, $accent-green-dark, $primary-dark);
+    width: fit-content;
+}
+
+.github-link{
+    @include item-chip($primary-dark, $strict-white, $primary-dark);
+    width: fit-content;
+}
+
+.portfolio-item-intro{
+    @include flex-column();
+    align-items: center;
+
+    
+}
+
+
+
+

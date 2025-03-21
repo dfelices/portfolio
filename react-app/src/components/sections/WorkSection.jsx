@@ -12,7 +12,7 @@ function WorkSection() {
 
     return (
         <>
-            <section id="work" className="portfolio-works" aria-hidden={!!selectedWork}>
+            <section id="work" className="portfolio-works">
 
                 <h2>Work</h2>
                 <div className="portfolio-works-scroll">
