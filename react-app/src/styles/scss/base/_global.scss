@@ -107,13 +107,17 @@ body{
 	  
 		  &::-webkit-scrollbar-thumb {
 			background-color: $primary-dark; // Scrollbar thumb color
-			border-radius: 2px;
+			border-radius: 3px;
 		  }
 	  
 		  &::-webkit-scrollbar-track {
 			background-color: $accent-green; // Scrollbar track color
 			border: solid 2px $primary-dark;
+			border-radius: 3px;
 		  }
+
+
+		
 	}
 
 
