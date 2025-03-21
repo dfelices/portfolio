@@ -95,25 +95,23 @@ function WorksOverlay({ work, onClose }) {
                             {/* Render Tab Titles */}
                             <TabList>
                                 {work.acf["work-tabs"].map((tab, index) => (
-                                    <Tab key={index} className={"overlay-tab"}>{tab.tab_title}</Tab>
+                                    <Tab key={index} className="overlay-tab">{tab.tab_title}</Tab>
                                 ))}
                             </TabList>
 
                             {/* Render Tab Content */}
                             {work.acf["work-tabs"].map((tab, index) => (
-                                <TabPanel key={index} className={"overlay-tabpanel"}>
-                                    {tab.tab_content?.map((contentItem, i) => (
-                                        <div key={i} className="overlay-tab-content-item">
-                                            {/* Handle "Text_Feature" Layout */}
-                                            {contentItem.acf_fc_layout === "Text_Feature" && (
+                                <TabPanel key={index} className="overlay-tabpanel">
+                                    {tab.tab_content?.map((contentItem, i) => 
+                                        contentItem.acf_fc_layout === "Text_Feature" && contentItem.feature_title && contentItem.feature_description ? (
+                                            <div key={i} className="overlay-tab-content-item">
                                                 <div>
                                                     <h4>{contentItem.feature_title}</h4>
                                                     <p>{contentItem.feature_description}</p>
                                                 </div>
-                                            )}
-
-                                            {/* Handle "Key_Takeaways" Layout */}
-                                            {contentItem.acf_fc_layout === "Key_Takeaways" && (
+                                            </div>
+                                        ) : contentItem.acf_fc_layout === "Key_Takeaways" && contentItem.title && contentItem.description ? (
+                                            <div key={i} className="overlay-tab-content-item">
                                                 <div>
                                                     <h4>{contentItem.title}</h4>
                                                     <div
@@ -122,14 +120,14 @@ function WorksOverlay({ work, onClose }) {
                                                         }}
                                                     />
                                                 </div>
-                                            )}
-                                        </div>
-                                    ))}
+                                            </div>
+                                        ) : null // Skip rendering completely if no valid content
+                                    )}
                                 </TabPanel>
                             ))}
                         </Tabs>
-
                     )}
+
                 </div>
 
                 
