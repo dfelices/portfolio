@@ -4,11 +4,11 @@ function DesktopNav() {
 
     return (
         <>
-            <nav className='desktop-site-navigation'>
+            <nav className='desktop-site-navigation' role="navigation" aria-label="Main site navigation">
                 <ul>
                     <li>
                         <Link smooth to='/#work' className='desktop-nav-link' >
-                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-link'>
+                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-link' aria-hidden="true">
                                 <circle r="12" cx="14" cy="14" fill="#DBF8A0" stroke="#011627" 
                                 strokeWidth="3" />
                             </svg>
@@ -20,7 +20,7 @@ function DesktopNav() {
                     <li>
                         <Link smooth to='/#tools' className='desktop-nav-link' >
 
-                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-icon'>
+                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-icon' aria-hidden="true">
                                 <circle r="12" cx="14" cy="14" fill="#DBF8A0" stroke="#011627" strokeWidth="3" />
                             </svg>
                             
@@ -30,7 +30,7 @@ function DesktopNav() {
                     </li>
                     <li>
                         <Link smooth to='/#about' className='desktop-nav-link'>
-                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-icon'>
+                            <svg height="28" width="28" xmlns="http://www.w3.org/2000/svg" className='desktop-nav-icon' aria-hidden="true">
                                 <circle r="12" cx="14" cy="14" fill="#DBF8A0" stroke="#011627" strokeWidth="3" />
                             </svg>
                                 

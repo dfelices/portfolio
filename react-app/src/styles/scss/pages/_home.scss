@@ -32,6 +32,11 @@
     font-size: 22px;
 }
 
+.desktop-nav-link:focus {
+    outline: 2px solid #005fcc; /* High contrast color */
+    outline-offset: 2px;
+}
+
 .desktop-nav-icon circle {
     fill: #FFFFFF;
     stroke: #011627;
@@ -46,7 +51,18 @@
     }
 }
 
+[aria-current="page"] {
+    font-weight: bold;
+    color: #005fcc; /* High contrast color */
+    text-decoration: underline;
+}
 
+
+// Mobile navigation
+.nav-icon:focus, .nav-icon img:focus {
+    outline: 2px solid #005fcc; /* A clear, high-contrast outline */
+    outline-offset: 4px;
+}
 
 
 // Contact Section
@@ -234,3 +250,5 @@
 .fun{
     @include item-chip($primary-dark, $strict-white, $primary-dark)
 }
+
+
