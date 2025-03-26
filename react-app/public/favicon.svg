@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="512" height="512"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f8f8f8;
+      }
+
+      .cls-2 {
+        fill: #011627;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.5, SVG Export Plug-In . SVG Version: 1.2.0 Build 176)  -->
+  <g>
+    <g id="SvgjsG1005">
+      <rect class="cls-1" x="0" y="0" width="512" height="512" rx="256" ry="256"></rect>
+      <g>
+        <path class="cls-2" d="M96.6,119.6v272.8h-34.8V119.6h34.8ZM147,392.4h-65.9v-30.8h63.7c22.2,0,40.6-4.2,55.2-12.7,14.6-8.5,25.5-20.7,32.7-36.5,7.2-15.9,10.8-34.8,10.8-56.9s-3.6-40.6-10.7-56.3c-7.1-15.7-17.8-27.7-31.9-36.2-14.1-8.4-31.7-12.6-52.8-12.6h-68.5v-30.8h70.9c26.6,0,49.3,5.4,68.2,16.3,18.9,10.9,33.3,26.5,43.4,46.8,10.1,20.3,15.1,44.6,15.1,72.8s-5.1,52.9-15.2,73.3c-10.1,20.4-24.9,36.2-44.3,47.1-19.4,11-43,16.5-70.7,16.5Z"></path>
+        <path class="cls-2" d="M285.2,392.4V119.6h165v30.8h-130.2v93.4h117.7v30.8h-117.7v117.9h-34.8Z"></path>
+      </g>
+    </g>
+  </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
