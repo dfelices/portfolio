@@ -20,8 +20,6 @@ function ContactSection (){
 
                 if (link.platform_name === "LinkedIn") {
                     IconComponent = LinkedInIcon;
-                } else if (link.platform_name === "Mail") {
-                    IconComponent = MailIcon;
                 } else if (link.platform_name === "GitHub") {
                     IconComponent = GitHubIcon;
                 }
@@ -40,8 +38,17 @@ function ContactSection (){
                             <span>Icon not available</span> // Fallback in case no icon matches
                         )}
                     </a>
+                    
                 );
             })}
+
+            {/* Separate Mail Icon with mailto link */}
+            <a
+                href="mailto:daniellefelices@gmail.com?subject=Hello&body=Hi Danielle, I wanted to connect with you."
+                className="contact-icon-link"
+            >
+                <MailIcon className="contact-icon" />
+            </a>
         </div>
         </>
 
