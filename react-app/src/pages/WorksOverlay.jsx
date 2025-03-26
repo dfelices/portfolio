@@ -45,9 +45,14 @@ function WorksOverlay({ work, onClose }) {
                         <div className="live-site-link">
                             {work.acf?.live_site_link && (<a href={work.acf.live_site_link}>Live Site</a>)}
                         </div>
+                        
+                        {work.acf?.github_repo_link && (
                         <div className="github-link">
-                            {work.acf?.github_repo_link && (<a href={work.acf.github_repo_link}>GitHub</a>)}
+                            <a href={work.acf.github_repo_link}>GitHub</a>
                         </div>
+                        )}
+
+
                     </div>
 
                     <div className="overlay-intro">

@@ -211,6 +211,7 @@
     height: auto;
     max-height: 400px;
     overflow-y: auto;
+    @include flex-column(2rem)
 }
 
 .scroll-to-top {
