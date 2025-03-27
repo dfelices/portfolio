@@ -53,18 +53,6 @@
 }
 
 
-[aria-current="page"] {
-    font-weight: bold;
-    color: #005fcc; /* High contrast color */
-    text-decoration: underline;
-}
-
-
-// Mobile navigation
-.nav-icon:focus, .nav-icon img:focus {
-    outline: 2px solid #005fcc; /* A clear, high-contrast outline */
-    outline-offset: 4px;
-}
 
 
 // Contact Section

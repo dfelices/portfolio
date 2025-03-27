@@ -1,17 +1,16 @@
 import { HashLink as Link } from 'react-router-hash-link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 function MobileNav(){
     const [activeSection, setActiveSection] = useState('');
+    const timeoutRef = useRef(null); // Use a ref for better memory management
 
     useEffect(() => {
-        let timeout;
-
-        // Update active section based on URL hash with debouncing
         const handleHashChange = () => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
+            // Debounce hash change updates
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = setTimeout(() => {
                 setActiveSection(window.location.hash);
             }, 100);
         };
@@ -19,18 +18,18 @@ function MobileNav(){
         // Add event listener for hash changes
         window.addEventListener('hashchange', handleHashChange);
 
-        // Set initial active section on load
+        // Set the initial active section when the component mounts
         handleHashChange();
 
-        // Cleanup listener on unmount
+        // Cleanup listener and clear timeout on unmount
         return () => {
-            clearTimeout(timeout);
+            clearTimeout(timeoutRef.current);
             window.removeEventListener('hashchange', handleHashChange);
         };
     }, []);
 
     useEffect(() => {
-        // Focus active link for enhanced accessibility
+        // Focus the active link dynamically for accessibility
         const activeLink = document.querySelector(`[href="/#${activeSection.slice(1)}"]`);
         if (activeLink) {
             activeLink.focus();
@@ -39,15 +38,16 @@ function MobileNav(){
 
     return (
         <>
+            <a href="#main-content" className="skip-link">Skip to main content</a>
             <nav role="navigation" aria-label="Mobile site navigation">
                 <ul>
                     <li>
                         <Link 
                         smooth to='/#home'
-                        aria-current={activeSection === '#home' && 'page'}
+                        aria-current={activeSection === '#home' ? 'page' : undefined}
                         >
                             <div className="nav-icon">
-                                <img src="icons/home.svg" alt="Navigate to the home section" />
+                                <img src="icons/home.svg" alt="" />
                             </div>
                             <p>Home</p>
                         </Link>
@@ -55,10 +55,10 @@ function MobileNav(){
                     <li>
                         <Link 
                         smooth to='/#work'
-                        aria-current={activeSection === '#work' && 'page'}
+                        aria-current={activeSection === '#work' ? 'page' : undefined}
                         >
                             <div className="nav-icon">
-                                <img src="icons/work.svg" alt="Navigate to the work section" />
+                                <img src="icons/work.svg" alt="" />
                             </div>
                             <p>Work</p>
                         </Link>
@@ -66,10 +66,10 @@ function MobileNav(){
                     <li>
                         <Link 
                         smooth to='/#tools'
-                        aria-current={activeSection === '#tools' && 'page'}
+                        aria-current={activeSection === '#tools' ? 'page' : undefined}
                         >
                             <div className="nav-icon-tools">
-                                <img src="icons/tools.svg" alt="Navigate to the tool section" />
+                                <img src="icons/tools.svg" alt="" />
                             </div>
                             <p>Tools</p>
                         </Link>
@@ -77,10 +77,10 @@ function MobileNav(){
                     <li>
                         <Link 
                         smooth to='/#about' 
-                        aria-current={activeSection === '#about' && 'page'}
+                        aria-current={activeSection === '#about' ? 'page' : undefined}
                         >
                             <div className="nav-icon">
-                                <img src="icons/about.svg" alt="Navigate to the about section" />
+                                <img src="icons/about.svg" alt="" />
                             </div>
                             <p>About</p>
                         </Link>
@@ -88,10 +88,10 @@ function MobileNav(){
                     <li>
                         <Link 
                         smooth to='/#contact'
-                        aria-current={activeSection === '#contact' && 'page'}
+                        aria-current={activeSection === '#contact' ? 'page' : undefined}
                         >
                             <div className="nav-icon">
-                                <img src="icons/contact.svg" alt="Navigate to the contact section" />
+                                <img src="icons/contact.svg" alt="" />
                             </div>
                             <p>Contact</p>
                         </Link>

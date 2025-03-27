@@ -1,4 +1,5 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
 
 nav{
     background-color: $primary-dark;
@@ -19,7 +20,7 @@ nav{
     ul{
         display: flex;
         justify-content: space-around;
-        align-items: bottom;
+        align-items: center;
         padding: 0;
         margin: 0;
 
@@ -32,6 +33,8 @@ nav{
             p{
                 color: $accent-green;
                 font-size: 0.625rem;
+                text-align: center;
+                margin: 0;
             }
         }
     }
@@ -39,15 +42,44 @@ nav{
 }
 
 
-.nav-icon {
-    display: flex;
-    justify-content: center;
-    
-    &:not(.nav-icon-tools) {
-        margin-bottom: 0.25rem;
+.nav-icon { 
+    display: flex; 
+    justify-content: center; 
+    &:not(.nav-icon-tools) { 
+        margin-bottom: 0.25rem; 
+    } 
+}
+
+.nav-icon-tools { 
+    transform: translateY(2.25px); 
+}
+
+.nav-icon:focus-visible, .nav-icon img:focus-visible {
+    outline: 2px solid $accent-green;
+    outline-offset: 4px;
+}
+
+
+// Skip Link Styling */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: -999px;
+    z-index: 1001;
+    background-color: $primary-light; 
+    color: $primary-dark;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+
+    &:focus {
+        left: 1rem;
+        top: 1rem;
+        outline: 2px solid $primary-dark;
     }
 }
 
-.nav-icon-tools{
-    transform: translateY(+2.25px);
+a[aria-current="page"] {
+    outline: 2px solid $primary-dark;
+    background-color: $primary-light;
 }

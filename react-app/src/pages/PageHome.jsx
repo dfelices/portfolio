@@ -18,7 +18,7 @@ function PageHome(){
     return(
         <>
             <div className='site-wrapper'>
-                <div className="section-sticky">
+                <div className="section-sticky" id='main-content'>
                     <HomeSection />
                 </div>
                 
