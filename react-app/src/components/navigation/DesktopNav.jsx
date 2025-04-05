@@ -41,7 +41,7 @@ function DesktopNav() {
                             aria-hidden="true"
                             focusable="false"
                             >
-                                <circle r="12" cx="14" cy="14" fill="#FFFFFF" stroke="#011627" strokeWidth="3" />
+                                <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
                             </svg>
 
                             Work
@@ -63,7 +63,7 @@ function DesktopNav() {
                             aria-hidden="true"
                             focusable="false"
                             >
-                                <circle r="12" cx="14" cy="14" fill="#FFFFFF" stroke="#011627" strokeWidth="3" />
+                                <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
                             </svg>
                             
                             Tools
@@ -86,7 +86,7 @@ function DesktopNav() {
                             aria-hidden="true"
                             focusable="false"
                             >
-                                <circle r="12" cx="14" cy="14" fill="#FFFFFF" stroke="#011627" strokeWidth="3" />
+                                <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
                             </svg>
                                 
                             About

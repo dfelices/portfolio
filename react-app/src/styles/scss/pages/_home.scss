@@ -22,38 +22,6 @@
 }
 
 
-.desktop-site-navigation ul{
-    @include flex-column(1.25rem);
-
-}
-
-.desktop-nav-link{
-    @include flex-row(0.375rem);
-    font-size: 22px;
-    align-items: center;
-}
-
-.desktop-nav-link:focus {
-    outline: 2px solid #005fcc; /* High contrast color */
-    outline-offset: 2px;
-}
-
-
-.desktop-nav-link:hover, 
-.desktop-nav-link:focus{
-    circle {
-        fill: #DBF8A0; // New inner color on hover, focus state
-        stroke: #011627;
-    }
-}
-
-.desktop-nav-link:active circle {
-    fill: #DBF8A0;
-    stroke: #011627;
-}
-
-
-
 
 // Contact Section
 .contact-icons{
@@ -72,9 +40,9 @@
     height: 40px;
 }
 
-// .contact-icon-link:hover{
-//     fill: $primary-dark; /* Color change on hover */
-// }
+.contact-icon:hover{
+    fill: $primary-dark; /* Color change on hover */
+}
 
 // Work Section
 #work{
