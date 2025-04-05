@@ -12,7 +12,6 @@
     height: 100%;
 }
 
-
 .desktop-home-content{
     @include flex-column(clamp(4rem, 4vw, 5rem));
 }
@@ -20,6 +19,7 @@
 .home-content{
     @include flex-column(2rem);
 }
+
 
 
 
@@ -43,6 +43,8 @@
 .contact-icon:hover{
     fill: $primary-dark; /* Color change on hover */
 }
+
+
 
 // Work Section
 #work{
@@ -128,6 +130,8 @@
         height: 16px;
     }
 }
+
+
 
 // Tools Section
 .tools-section{
