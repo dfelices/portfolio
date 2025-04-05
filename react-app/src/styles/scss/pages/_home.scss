@@ -27,6 +27,7 @@
 .contact-icons{
     @include flex-row(2rem);
     padding-bottom: 4rem;
+    padding-left: 0;
 
     @media (min-width: $mobile){
         padding-bottom: 0;

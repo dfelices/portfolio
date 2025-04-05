@@ -37,7 +37,7 @@ function HomeSection (){
                         <h1 id='home-title'>
                             {`${restData.first_name || 'First Name'} ${restData.last_name || 'Last Name'}`}
                         </h1>
-                        <p className='profile-title'>{restData.title}</p>
+                        <p className="profile-title">{restData.title || "Profile Title"}</p>
                     </div>
                     <p className='tagline'>{restData.tagline || 'Welcome to my profile'}</p>
                 </div>
