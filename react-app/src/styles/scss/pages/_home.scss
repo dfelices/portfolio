@@ -45,6 +45,12 @@
     fill: $primary-dark; /* Color change on hover */
 }
 
+.contact-icon-link:focus {
+    outline: 2px solid #005fcc;
+    border-radius: 4px;
+}
+  
+
 
 
 // Work Section
@@ -205,8 +211,13 @@
     @include flex-column(1rem)
 }
 
+.about-content :focus {
+    outline: 2px solid #005fcc; /* Visible focus with good color contrast */
+    border-radius: 4px;
+}
+
 .favourite-tagline{
-    font-style: italic;
+    font-style: italic; 
     font-weight: 500;
 }
 
