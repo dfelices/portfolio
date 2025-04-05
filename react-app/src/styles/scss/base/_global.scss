@@ -103,7 +103,7 @@ body{
 		padding-right: clamp(2rem, 2vw, 4rem);
 
 		  &::-webkit-scrollbar {
-			width: 12px; // Scrollbar width for WebKit browsers
+			width: 16px; // Scrollbar width for WebKit browsers
 		  }
 	  
 		  &::-webkit-scrollbar-thumb {
