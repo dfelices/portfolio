@@ -1,20 +1,34 @@
 import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
 import WorksOverlay from '../../pages/WorksOverlay';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function WorkSection() {
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-work?_embed');
     const [selectedWork, setSelectedWork] = useState(null);
 
-    if (isLoading) return <Loading />;
-    if (error) return <p>Error: {error}</p>;
+    if (isLoading) {
+        return (
+            <div role="status" aria-live="polite">
+                <Loading />
+                <p>Loading portfolio works...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div role="alert">
+                <p>Error: {error}</p>
+            </div>
+        );
+    }
 
     return (
         <>
-            <section id="work" className="portfolio-works">
+            <section id="work" className="portfolio-works" aria-labelledby="work-heading">
 
-                <h2>Work</h2>
+                <h2 id="work-heading">Work</h2>
                 <div className="portfolio-works-scroll">
                     {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
                         restData
@@ -25,6 +39,7 @@ function WorkSection() {
                                     className="portfolio-item"
                                     role="button"
                                     tabIndex={0} // Makes the div focusable
+                                    aria-expanded={selectedWork === work}
                                     onClick={(e) => {
                                         e.preventDefault(); // Prevent default behavior
                                         setSelectedWork(work); // Open overlay
@@ -52,12 +67,19 @@ function WorkSection() {
                                     </div>
                                     <div className="more-info-container">
                                         <p>More info</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z"/></svg>    
+                                        <svg 
+                                            xmlns="http://www.w3.org/2000/svg" 
+                                            viewBox="0 -960 960 960"
+                                            role="img"
+                                            aria-label="Arrow icon for more information"
+                                        >
+                                            <path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z"/>
+                                        </svg>    
                                     </div>
                                 </div>
                             ))
                     ) : (
-                        <p>No works to display at the moment.</p>
+                        <p>No portfolio works to display. Check back later for updates!</p>
                     )}
                 </div>
             </section>
