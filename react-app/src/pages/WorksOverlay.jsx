@@ -11,8 +11,9 @@ function WorksOverlay({ work, onClose }) {
         // Store the last focused element
         lastFocusedElement.current = document.activeElement;
 
-        // Focus the overlay when it opens
+        // Apply "open" class for animation and focus the overlay
         if (overlayRef.current) {
+            overlayRef.current.classList.add("overlay-open");
             overlayRef.current.focus();
         }
 
@@ -31,7 +32,17 @@ function WorksOverlay({ work, onClose }) {
                 lastFocusedElement.current.focus();
             }
         };
-    }, [onClose]);
+    }, []);
+
+    const handleClose = () => {
+        if (overlayRef.current) {
+            overlayRef.current.classList.remove("overlay-open");
+            overlayRef.current.classList.add("overlay-closing");
+            setTimeout(() => onClose(), 300); // Delay close to match the animation duration
+        }
+    };
+
+
 
     return ReactDOM.createPortal(
         <div
@@ -47,7 +58,7 @@ function WorksOverlay({ work, onClose }) {
                 <div className="top-bar" id="overlay-top">
                     <button
                         className="close-btn"
-                        onClick={onClose}
+                        onClick={handleClose}
                         aria-label="Close overlay"
                     >
                         <svg
@@ -98,7 +109,7 @@ function WorksOverlay({ work, onClose }) {
                         )}
                     </div>
 
-                    <h2 id="overlay-title">{work.title.rendered}</h2>
+                    <h1 id="overlay-title">{work.title.rendered}</h1>
                     <div id="overlay-description">
                         <div className="overlay-tools-list">
                             {work.acf?.work_tools?.length > 0 &&

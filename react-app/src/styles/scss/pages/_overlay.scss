@@ -133,6 +133,10 @@
     width: fit-content;
 }
 
+#overlay-title{
+    margin: 0 auto;
+}
+
 .overlay-intro{
     @include flex-column();
     align-items: center;
@@ -167,11 +171,13 @@
 
 .overlay-collab{
     @include flex-row(0.5rem);
+    margin: 0 auto;
 }
 
 .overlay-roles{
     @include flex-row(0.5rem);
     justify-content: center;
+    margin: 0 auto;
     @include size-auto-fit;
 
     ul{
@@ -193,8 +199,8 @@
     }
 }
 
-.overlay-description{
-    @include flex-column(1rem)
+#overlay-description{
+    @include flex-column(1rem);
 }
 
 
