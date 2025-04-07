@@ -27,7 +27,7 @@ function WorkSection() {
         <>
             <section id="work" className="portfolio-works" aria-labelledby="work-heading">
                 <h2 id="work-heading">Work</h2>
-                <p>A collection of featured work</p>
+                <p>A collection of featured work.</p>
                     {restData.filter((work) => work.acf?.show_in_portfolio?.includes("1")).length > 0 ? (
                         restData
                             .filter((work) => work.acf?.show_in_portfolio?.includes("1"))

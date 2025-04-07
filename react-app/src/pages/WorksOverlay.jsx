@@ -173,12 +173,16 @@ function WorksOverlay({ work, onClose }) {
                                     className="overlay-tabpanel"
                                 >
                                     {tab.tab_content?.map((contentItem, i) =>
-                                        contentItem.acf_fc_layout === "Text_Feature" &&
-                                        contentItem.feature_title &&
-                                        contentItem.feature_description ? (
+                                        contentItem.acf_fc_layout === "Highlights" &&
+                                        contentItem.title &&
+                                        contentItem.description ? (
                                             <div key={i} className="overlay-tab-content-item">
-                                                <h4>{contentItem.feature_title}</h4>
-                                                <p>{contentItem.feature_description}</p>
+                                                <h4>{contentItem.title}</h4>
+                                                <div
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: contentItem.description,
+                                                    }}
+                                                />
                                             </div>
                                         ) : contentItem.acf_fc_layout === "Key_Takeaways" &&
                                           contentItem.title &&
