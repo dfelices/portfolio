@@ -1,6 +1,4 @@
-import { customEndPointGlobalSettings, useFetch } from '../utilities/Globals'
-import Loading from "../utilities/Loading"
-
+import { customEndPointGlobalSettings, useFetch, Loading } from '../../utilities'
 
 function ProfessionalBio (){
     const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);

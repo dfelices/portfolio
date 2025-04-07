@@ -1,8 +1,7 @@
-import { customEndPointGlobalSettings, useFetch } from '../../utilities/Globals'
-import Loading from "../../utilities/Loading"
+import { customEndPointGlobalSettings, useFetch, Loading } from '../../utilities'
 import ContactSection from './ContactSection'
-import { useMediaQuery } from 'react-responsive'
 import DesktopNav from '../navigation/DesktopNav'
+import { useMediaQuery } from 'react-responsive'
 import { useEffect } from 'react'
 
 

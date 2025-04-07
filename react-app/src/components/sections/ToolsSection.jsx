@@ -1,6 +1,5 @@
-import { restBase, useFetch } from '../../utilities/Globals'
-import Loading from "../../utilities/Loading"
-import ProfessionalBio from '../professionalBio'
+import { restBase, useFetch, Loading } from '../../utilities'
+import ProfessionalBio from '../other/ProfessionalBio';
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs'
 import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'

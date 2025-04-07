@@ -1,13 +1,7 @@
-import HomeSection from '../components/sections/HomeSection'
-import WorkSection from '../components/sections/WorkSection'
-import ToolsSection from '../components/sections/ToolsSection'
-import AboutSection from '../components/sections/AboutSection'
-import { restBase, useFetch } from '../utilities/Globals'
-import Loading from '../utilities/Loading'
-import { useMediaQuery } from 'react-responsive'
+import {AboutSection, Footer, HomeSection, ToolsSection, WorkSection } from '../components/sections'
+import { useFetch, restBase, Loading } from '../utilities'
 import MobileNav from '../components/navigation/MobileNav'
-import Footer from '../components/sections/Footer'
-
+import { useMediaQuery } from 'react-responsive'
 
 
 function PageHome(){

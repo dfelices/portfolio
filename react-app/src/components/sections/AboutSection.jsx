@@ -1,6 +1,7 @@
-import { customEndPointGlobalSettings, useFetch } from '../../utilities/Globals'
-import Loading from "../../utilities/Loading"
+import { customEndPointGlobalSettings, useFetch, Loading } from '../../utilities'
 import { useEffect } from 'react';
+
+
 
 function AboutSection (){
     const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);

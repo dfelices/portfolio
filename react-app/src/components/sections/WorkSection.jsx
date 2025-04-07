@@ -1,5 +1,4 @@
-import { restBase, useFetch } from '../../utilities/Globals'
-import Loading from "../../utilities/Loading"
+import { restBase, useFetch, Loading } from '../../utilities'
 import WorksOverlay from '../../pages/WorksOverlay';
 import { useState } from 'react';
 

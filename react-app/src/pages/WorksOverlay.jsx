@@ -3,6 +3,8 @@ import { React, useEffect, useRef } from "react";
 import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
 import { HashLink as Link } from "react-router-hash-link";
 
+
+
 function WorksOverlay({ work, onClose }) {
     const overlayRef = useRef(null); // To focus overlay on open
     const lastFocusedElement = useRef(null); // To restore focus when overlay closes

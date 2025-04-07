@@ -1,8 +1,6 @@
-import { customEndPointGlobalSettings, useFetch } from "../../utilities/Globals";
-import Loading from "../../utilities/Loading"
-import LinkedInIcon from "../icons/LinkedInIcon"
-import MailIcon from "../icons/MailIcon"
-import GitHubIcon from "../icons/GitHubIcon"
+import { customEndPointGlobalSettings, useFetch, Loading } from '../../utilities'
+import {GitHubIcon, LinkedInIcon, MailIcon} from '../icons'
+
 
 
 function ContactSection (){
