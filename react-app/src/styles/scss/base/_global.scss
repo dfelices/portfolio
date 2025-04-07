@@ -26,23 +26,6 @@
 /* Elements
 --------------------------------------------- */
 
-.portfolio-item img{
-    width: 100%;
-    height: auto;
-	border-radius: 4px;
-	transition: filter 0.3s ease;
-
-	&:hover img{
-		filter: brightness(1.1);
-	}
-}
-
-img{
-    object-fit: cover;
-    object-position: center center;
-}
-
-
 button{
     all: unset; 
     cursor: pointer; 

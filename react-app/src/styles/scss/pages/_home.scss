@@ -76,13 +76,16 @@
 .portfolio-item{
     @include flex-column(0.5rem);
     width: fit-content;
-    // max-width: 400px;
     height: auto;
     background-color: $profile-item;
     border-radius: 6px;
     border: solid 2px $primary-dark;
     transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, border-width 0.1s ease-in-out;
     padding: 4px 6px;
+
+    @media (min-width: $mobile){
+        max-width: 475px;
+    }
     
 
     &:hover{
@@ -119,6 +122,27 @@
 }
 
 
+.portfolio-item-image-container{
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+
+.portfolio-item img{
+    width: 100%;
+    height: auto;
+	border-radius: 4px;
+	transition: filter 0.3s ease;
+	object-fit: cover;
+	object-position: center center;
+
+	&:hover img{
+		filter: brightness(1.1);
+	}
+}
+
+
+
 .tools-list, .react-tabs__tab-panel ul, .fun-list{
     @include flex-row(0.5rem);
     flex-wrap: wrap;
@@ -145,7 +169,8 @@
 
 // Tools Section
 .tools-section{
-    @include flex-column(2rem)
+    @include flex-column(2rem);
+    max-width: 475px;
 }
 
 .react-tabs{
@@ -207,7 +232,12 @@
 // About Section
 
 #about{
-    @include flex-column(2rem)
+    @include flex-column(2rem);
+    width: 100%;
+
+    @media (min-width: $mobile){
+        max-width: 475px;
+    }
 }
 
 .about-content{ 
