@@ -76,6 +76,13 @@
     }
 }
 
+button{
+    background-color: $primary-dark;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
 .close-btn svg{
     fill: $primary-light;
     padding: 8px;
