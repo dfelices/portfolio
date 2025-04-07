@@ -1,43 +1,12 @@
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
 @use './variables' as *;
 @use './mixins' as *;
 
 @import 'normalize.css';
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Generic (imported above)
-	- Normalize
-	- Box sizing
-	- Media width
-# Base
-	- Typography (called in _typography)
-	- Elements
-	- Links (called in _typography)
-# Layouts
-# Components (called in components folder within component-specific files)
-	- mobileNav
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Base
---------------------------------------------------------------*/
-
-/* Elements
---------------------------------------------- */
-
-button{
-    all: unset; 
-    cursor: pointer; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-	padding: 4px;
-}
-
-/*--------------------------------------------------------------
-# Layout
---------------------------------------------------------------*/
 
 body{
     background-color: $primary-light;
@@ -99,19 +68,12 @@ body{
 			border: solid 2px $primary-dark;
 			border-radius: 3px;
 		  }
-
-
-		
 	}
-
-
 }
 
 
 html {
     scroll-behavior: smooth; /* Enables smooth scrolling for hash links */
 }
-/* Footer
---------------------------------------------- */
 
 

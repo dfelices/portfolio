@@ -1,7 +1,7 @@
 import { restBase, useFetch } from '../../utilities/Globals'
 import Loading from "../../utilities/Loading"
 import WorksOverlay from '../../pages/WorksOverlay';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 function WorkSection() {
     const { data: restData, isLoading, error } = useFetch(restBase + 'portfolio-work?_embed');

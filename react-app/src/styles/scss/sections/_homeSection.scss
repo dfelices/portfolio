@@ -1,0 +1,17 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+
+#home{
+    @include flex-column(4rem);
+    justify-content: space-between;
+    height: 100%;
+}
+
+.desktop-home-content{
+    @include flex-column(clamp(4rem, 4vw, 5rem));
+}
+
+.home-content{
+    @include flex-column(2rem);
+}

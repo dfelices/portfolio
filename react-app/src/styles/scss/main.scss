@@ -1,9 +1,20 @@
-@use './base/global';
+// Base
+@use './base/layout';
 @use './base/variables';
 @use './base/mixins';
 @use './base/typography';
-@use './components/button';
+
+// Components
 @use './components/mobileNav';
 @use './components/desktopNav';
-@use './pages/home';
+
+// Pages
 @use './pages/overlay';
+
+// Sections
+@use './sections/footerSection';
+@use './sections/aboutSection';
+@use './sections/toolsSection';
+@use './sections/workSection';
+@use './sections/contactSection';
+@use './sections/homeSection';

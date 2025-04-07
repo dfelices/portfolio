@@ -6,6 +6,9 @@ import { restBase, useFetch } from '../utilities/Globals'
 import Loading from '../utilities/Loading'
 import { useMediaQuery } from 'react-responsive'
 import MobileNav from '../components/navigation/MobileNav'
+import Footer from '../components/sections/Footer'
+
+
 
 function PageHome(){
     const isMobile = useMediaQuery({maxWidth: 768})
@@ -26,15 +29,13 @@ function PageHome(){
                     <WorkSection works={restData}/>
                     <ToolsSection />
                     <AboutSection />
+                    {isMobile ? <Footer /> : null}
                 </div>
+
             </div>
 
-            {isMobile ? (
-                <MobileNav />
-            ) : null}
-
+            {!isMobile ? <Footer /> : <MobileNav />}
         </>
-
         
     )
 }

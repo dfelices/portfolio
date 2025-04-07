@@ -1,0 +1,64 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+
+.tools-section{
+    @include flex-column(2rem);
+    @media (min-width: $mobile){
+        max-width: 475px;
+    }
+}
+
+.react-tabs{
+    padding-right: 12px;
+}
+
+.react-tabs__tab-list{
+    @include flex-row(0.6rem);
+    padding: 0;
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.react-tabs__tab{
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+    padding: 4px 8px;
+}
+
+.react-tabs__tab-panel--selected .tool {
+    @include item-chip($primary-dark, $primary-dark, $strict-white);
+    
+}
+
+.react-tabs__tab--selected{
+    background-color: $accent-green;
+    border: solid 2px $primary-dark;
+    border-bottom: none;
+}
+
+.react-tabs__tab-panel--selected{
+    border: solid 2px $primary-dark;
+    margin-top: -2px;
+    padding: 10px 12px;
+    border-radius: 0 0 6px 6px;
+    height: 110px;
+    width: 100%;
+    max-width: fit-content;
+    overflow: auto;
+    background-color: $strict-white;
+
+      /* Hide scrollbars */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.tab-contain{
+    width: fit-content;
+    height: auto;
+}
+
+.react-tabs__tab-panel--selected::-webkit-scrollbar{
+    display: none; /* Hides scrollbar in WebKit browsers */
+}

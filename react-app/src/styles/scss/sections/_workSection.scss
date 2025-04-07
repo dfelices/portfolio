@@ -1,0 +1,112 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+
+#work{
+    @include flex-column(1rem)
+}
+
+.portfolio-works-scroll{
+    height: 840px;
+    overflow: auto;
+    @include flex-column(2rem);
+
+      /* Hide scrollbars */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+} 
+
+.portfolio-works-scroll::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in WebKit browsers */
+}
+
+.portfolio-item{
+    @include flex-column(0.5rem);
+    width: fit-content;
+    height: auto;
+    background-color: $profile-item;
+    border-radius: 6px;
+    border: solid 2px $primary-dark;
+    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, border-width 0.1s ease-in-out;
+    padding: 4px 6px;
+
+    @media (min-width: $mobile){
+        max-width: 475px;
+    }
+    
+
+    &:hover{
+       background-color: $accent-green;
+       border: solid 2.75px $primary-dark;
+       box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);/* Adds a subtle shadow for better aesthetics */
+
+       h3 {
+        font-weight: 500;
+       }
+       
+       .more-info-container p{
+        font-weight: 500;
+       }
+
+       .tool {
+        @include item-chip($primary-dark, $strict-white, $primary-dark);
+    }
+
+    }
+
+    .more-info-container svg {
+        transition: transform 0.3s ease; // Smooth transform for the SVG
+      }
+    
+      &:hover .more-info-container svg {
+        transform: translateX(3px); // Slide icon slightly to the right
+      }
+
+    .tool {
+        @include item-chip($primary-dark, $accent-green, $primary-dark); // Default styles
+    }
+
+}
+
+
+.portfolio-item-image-container{
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+
+.portfolio-item img{
+    width: 100%;
+    height: auto;
+	border-radius: 4px;
+	transition: filter 0.3s ease;
+	object-fit: cover;
+	object-position: center center;
+
+	&:hover img{
+		filter: brightness(1.1);
+	}
+}
+
+
+
+.tools-list, .react-tabs__tab-panel ul, .fun-list{
+    @include flex-row(0.5rem);
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    width: 100%;
+    height: auto;
+    padding: 0
+}
+
+.more-info-container{
+    @include flex-row (2px);
+    align-items: center;
+
+    svg{
+        fill: "#011627";
+        width: 16px;
+        height: 16px;
+    }
+}

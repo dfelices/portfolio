@@ -1,0 +1,29 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use '../base/typography' as *;
+
+.contact-icons{
+    @include flex-row(2rem);
+    padding-bottom: 4rem;
+    padding-left: 0;
+
+    @media (min-width: $mobile){
+        padding-bottom: 0;
+    }
+}
+
+.contact-icon {
+    fill: $contact-icon; /* Default color */
+    transition: fill 0.3s ease; 
+    width: 40px;
+    height: 40px;
+}
+
+.contact-icon:hover{
+    fill: $primary-dark; /* Color change on hover */
+}
+
+.contact-icon-link:focus {
+    outline: 2px solid #005fcc;
+    border-radius: 4px;
+}

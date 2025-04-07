@@ -1,0 +1,11 @@
+@use '../base/variables' as *;
+@use '../base/typography' as *;
+
+.footer{
+    width: fit-content;
+    padding-bottom: 2rem;
+    
+    @media (min-width: $mobile){
+        margin: 0 auto;
+    }
+}
