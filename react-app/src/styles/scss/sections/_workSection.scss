@@ -77,19 +77,20 @@
 }
 
 
-.portfolio-item-image-container{
-    width: 100%;
-    aspect-ratio: 16/9;
-}
+// .portfolio-item-image-container{
+//     width: 100%;
+//     aspect-ratio: 16/9;
+// }
 
 
 .portfolio-item img{
     width: 100%;
     height: auto;
+    max-height: 300px;
 	border-radius: 4px;
 	transition: filter 0.3s ease;
 	object-fit: cover;
-	object-position: center center;
+	object-position: top center;
 
 	&:hover img{
 		filter: brightness(1.1);

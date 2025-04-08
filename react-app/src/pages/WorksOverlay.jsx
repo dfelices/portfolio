@@ -56,7 +56,7 @@ function WorksOverlay({ work, onClose }) {
             ref={overlayRef}
         >
             <div className="overlay-content">
-                <div className="top-bar" id="overlay-top">
+                <div className="top-bar" id="top-bar">
                     <button
                         className="close-btn"
                         onClick={handleClose}
@@ -84,7 +84,7 @@ function WorksOverlay({ work, onClose }) {
                     />
                 </div>
 
-                <div className="acf-text">
+                <div className="overlay-text">
                     <div className="overlay-links">
                         {work.acf?.live_site_link && (
                             <div className="live-site-link">
@@ -111,7 +111,7 @@ function WorksOverlay({ work, onClose }) {
                     </div>
 
                     <h1 id="overlay-title">{decodeHTMLEntities(work.title.rendered)}</h1>
-                    <div id="overlay-description">
+                    <div className="overlay-description">
                         <div className="overlay-tools-list">
                             {work.acf?.work_tools?.length > 0 &&
                                 work.acf.work_tools.map((tool) => (
@@ -121,34 +121,36 @@ function WorksOverlay({ work, onClose }) {
                                 ))}
                         </div>
 
-                        <div className="overlay-collab-roles">
-                            {work.acf?.collaboration && (
-                                <div className="overlay-collab">
-                                    <p className="overlay-sub-heading">Collaboration:</p>
-                                    <p>{work.acf.collaboration}</p>
-                                </div>
-                            )}
+                        <div className="overlay-collab-roles-overview">
+                            <div className="overlay-collab-roles">
+                                {work.acf?.collaboration && (
+                                    <div className="overlay-collab">
+                                        <p className="overlay-sub-heading">Collaboration:</p>
+                                        <p>{work.acf.collaboration}</p>
+                                    </div>
+                                )}
 
-                            {work.acf?.roles?.length > 0 && (
-                                <div className="overlay-roles">
-                                    <p className="overlay-sub-heading">Role(s):</p>
-                                    <ul>
-                                        {work.acf.roles.map((roleTitleObj, index) => (
-                                            <li key={index}>{roleTitleObj.role_title}</li>
-                                        ))}
-                                    </ul>
+                                {work.acf?.roles?.length > 0 && (
+                                    <div className="overlay-roles">
+                                        <p className="overlay-sub-heading">Role(s):</p>
+                                        <ul>
+                                            {work.acf.roles.map((roleTitleObj, index) => (
+                                                <li key={index}>{roleTitleObj.role_title}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                            </div>
+
+                            {work.acf?.overview_description && (
+                                <div className="overlay-overview">
+                                    <p className="overlay-sub-heading">
+                                        Overview and Requirements:
+                                    </p>
+                                    <p>{work.acf.overview_description}</p>
                                 </div>
                             )}
                         </div>
-
-                        {work.acf?.overview_description && (
-                            <div className="overlay-description">
-                                <p className="overlay-sub-heading">
-                                    Overview and Requirements:
-                                </p>
-                                <p>{work.acf.overview_description}</p>
-                            </div>
-                        )}
                     </div>
 
                     {work.acf?.["work-tabs"]?.length > 0 && (
@@ -203,7 +205,7 @@ function WorksOverlay({ work, onClose }) {
 
                     <Link
                         smooth
-                        to="#overlay-top"
+                        to="#top-bar"
                         className="scroll-to-top"
                         aria-label="Scroll back to top"
                     >

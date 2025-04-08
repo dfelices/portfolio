@@ -14,9 +14,10 @@
     justify-content: center;
     align-items: center;
     z-index: 9999; /* Ensures the overlay appears on top of all content */
+
 }
 
-.overlay-content {
+.overlay-content{
     background-color: $primary-dark;
     color: $primary-light;
     width: 100vw;
@@ -62,6 +63,7 @@
 
 }
 
+
 .top-bar{
     background-color: $primary-dark;
     width: fit-content;
@@ -97,15 +99,21 @@ button{
 
 
 .overlay-image{
-    @include size-auto-fit;
+    width: fit-content;
+    height: auto;
+    aspect-ratio: 16/9;
     margin-top: 5rem;
-
+    padding: 0 1rem;
+    
     img {
         width: 100%;
         height: auto;
+        max-height: 350px;
         object-fit: cover;
-        object-position: center;
+        object-position: top;
+        border-radius: 6px;
     }
+    
 
     @media (min-width: $mobile){
         padding: 0 4rem;
@@ -113,9 +121,15 @@ button{
     }
 }
 
-.acf-text{
+
+.overlay-text{
     padding: 0 1rem 2rem;
     @include flex-column(clamp(2.25rem, 2vw, 2.5rem));
+
+
+    h1{
+        font-size: clamp(3rem, 4vw, 4.5rem);
+    }
     
     @media (min-width: $tablet){
         max-width: 75%;
@@ -166,8 +180,14 @@ button{
     }
 }
 
+.overlay-collab-roles-overview{
+    @media (min-width:$mobile){
+        @include flex-row(4rem);
+    }
+}
+
 .overlay-collab-roles{
-    @include flex-column();
+    @include flex-column(1rem);
     margin-top: clamp(2rem, 2vw, 3rem);
 }
 
@@ -177,37 +197,50 @@ button{
 }
 
 .overlay-collab{
-    @include flex-row(0.5rem);
-    margin: 0 auto;
+    @include flex-column(0.5rem);
 }
 
 .overlay-roles{
-    @include flex-row(0.5rem);
+    @include flex-column(0.5rem);
     justify-content: center;
     margin: 0 auto;
-    @include size-auto-fit;
+    width: 100%;
 
     ul{
         margin: 0;
         padding: 0;
-        @include size-auto-fit;
+        @include flex-row;
+        width: fit-content;
 
         li{
-            @include flex-row;
+            width: fit-content;
+
             &::after {
                 content: ","; // Add a comma after each list item
-                margin-right: 4px; // Optional: Add spacing after the comma
+                margin-right: 6px;
             }
     
             &:last-child::after {
                 content: ""; // Remove the comma for the last item
             }
         }
+
+        @media (min-width: $mobile){
+            @include flex-column
+        }
     }
 }
 
-#overlay-description{
+.overlay-description{
     @include flex-column(1rem);
+}
+
+.overlay-overview{
+    margin-top: 2rem;
+    
+    @media (min-width: $mobile){
+    max-width: 60%
+    }
 }
 
 
@@ -232,11 +265,15 @@ button{
 .overlay-tabpanel{
     color: $primary-dark;
     width: 100%;
-    height: auto;
-    max-height: 400px;
+    // height: auto;
     overflow-y: auto;
     @include flex-column(2rem)
 }
+
+.overlay-tabpanel.react-tabs__tab-panel--selected{
+    height: 400px;
+}
+
 
 .scroll-to-top {
     display: block;
