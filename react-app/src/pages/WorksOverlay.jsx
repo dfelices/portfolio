@@ -2,8 +2,7 @@ import ReactDOM from "react-dom";
 import { React, useEffect, useRef } from "react";
 import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
 import { HashLink as Link } from "react-router-hash-link";
-
-
+import {decodeHTMLEntities } from '../utilities'
 
 function WorksOverlay({ work, onClose }) {
     const overlayRef = useRef(null); // To focus overlay on open
@@ -111,7 +110,7 @@ function WorksOverlay({ work, onClose }) {
                         )}
                     </div>
 
-                    <h1 id="overlay-title">{work.title.rendered}</h1>
+                    <h1 id="overlay-title">{decodeHTMLEntities(work.title.rendered)}</h1>
                     <div id="overlay-description">
                         <div className="overlay-tools-list">
                             {work.acf?.work_tools?.length > 0 &&

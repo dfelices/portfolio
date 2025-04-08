@@ -3,7 +3,15 @@
 @use '../base/typography' as *;
 
 #work{
-    @include flex-column(1rem)
+    @include flex-column(1rem);
+}
+
+.portfolio-featured-list{
+    @include flex-column(1rem);
+
+    @media (min-width: $mobile){
+        @include flex-column(2rem);
+    }
 }
 
 .portfolio-works-scroll{
@@ -48,7 +56,7 @@
        box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);/* Adds a subtle shadow for better aesthetics */
 
        .tool {
-        @include item-chip($primary-dark, $strict-white, $primary-dark);
+        @include item-chip($accent-green, $strict-white, $primary-dark);
         }
 
     }
