@@ -2,14 +2,13 @@
 @use '../base/mixins' as *;
 @use '../base/typography' as *;
 
-.desktop-site-navigation ul{
+.desktop-site-navigation ul {
     @include flex-column(1.25rem);
     align-items: start;
     width: fit-content;
-
 }
 
-.desktop-nav-link{
+.desktop-nav-link {
     transition: all 0.3s ease;
     @include flex-row(0.375rem);
     font-size: 22px;
@@ -18,41 +17,20 @@
 
 .desktop-nav-link:focus-visible {
     outline: 2px solid $primary-dark;
-    outline-offset: 4px; /* For keyboard navigation only */
+    outline-offset: 4px;
 }
 
-.desktop-nav-link:hover, 
-.desktop-nav-link:focus-visible{
+.desktop-nav-link:hover,
+.desktop-nav-link:focus-visible,
+.desktop-nav-link[aria-current="page"] {
     circle {
         fill: $accent-green;
         stroke: $primary-dark;
     }
 }
 
-.desktop-nav-link:focus {
-    outline: none; /* Suppress focus during mouse interaction */
-}
-
 .desktop-nav-link[aria-current="page"] {
-    border-radius: 6px; 
+    border-radius: 6px;
     padding: 2px 4px;
-    outline: none; 
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
-.desktop-nav-link[aria-current="page"] circle {
-    transition: all 0.3s ease;
-    fill: $accent-green;
-    stroke: $primary-dark;
-}
-
-.desktop-nav-link[aria-current="page"]::after {
-    content: " (Active)";
-    clip: rect(1px, 1px, 1px, 1px); /* Hides visually */
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
 }

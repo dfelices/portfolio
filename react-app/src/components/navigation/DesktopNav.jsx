@@ -1,102 +1,76 @@
-import { HashLink as Link } from 'react-router-hash-link'
-import { useState, useEffect } from 'react'
+import { HashLink as Link } from 'react-router-hash-link';
+import { useState, useEffect } from 'react';
 
 function DesktopNav() {
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState(''); // Default to no section active
+
+    const navItems = [
+        { to: '/#work', label: 'Work', id: 'work' },
+        { to: '/#tools', label: 'Tools', id: 'tools' },
+        { to: '/#about', label: 'About', id: 'about' }
+    ];
 
     useEffect(() => {
-        const handleScroll = () => {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                    setActiveSection(section.id); // Update active section based on its ID
+        const observerOptions = {
+            root: null, // Observes within the viewport
+            threshold: 0.2 // Trigger when 20% of a section is visible
+        };
+
+        const handleIntersect = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
                 }
             });
         };
 
-        window.addEventListener('scroll', handleScroll);
+        const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+        // Attach observer to all sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section) => observer.observe(section));
+
         return () => {
-            window.removeEventListener('scroll', handleScroll); // Cleanup event listener
+            // Cleanup observer on component unmount
+            sections.forEach((section) => observer.unobserve(section));
         };
     }, []);
 
     return (
         <>
-            <a href="#main-content" className="skip-link">Skip to main content</a>
-            <nav className='desktop-site-navigation' role="navigation" aria-label="Main site navigation">
+            <a href="#main-content" className="skip-link">
+                Skip to main content
+            </a>
+            <nav className="desktop-site-navigation" role="navigation" aria-label="Main site navigation">
                 <ul>
-                    <li role="listitem">
-                        <Link 
-                        smooth to='/#work' 
-                        className='desktop-nav-link'
-                        aria-current={activeSection === 'work' ? 'page' : undefined}
-                        onClick={() => setActiveSection('work')}
-                        >
-                            <svg 
-                            height="28" 
-                            width="28" 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            className='desktop-nav-link' 
-                            aria-hidden="true"
-                            focusable="false"
+                    {navItems.map(({ to, label, id }) => (
+                        <li key={id}>
+                            <Link
+                                smooth
+                                to={to}
+                                className="desktop-nav-link"
+                                aria-current={activeSection === id ? 'page' : undefined}
+                                tabIndex={activeSection === id ? 0 : -1}
                             >
-                                <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
-                            </svg>
-
-                            Work
-                        </Link>
-                        
-                    </li>
-                    <li role="listitem">
-                        <Link 
-                        smooth to='/#tools' 
-                        className='desktop-nav-link'
-                        aria-current={activeSection === 'tools' ? 'page' : undefined}
-                        onClick={() => setActiveSection('tools')}
-                        >
-                            <svg 
-                            height="28" 
-                            width="28" 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            className='desktop-nav-icon' 
-                            aria-hidden="true"
-                            focusable="false"
-                            >
-                                <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
-                            </svg>
-                            
-                            Tools
-
-                        </Link>
-                    </li>
-                    <li role="listitem">
-                        <Link 
-                        smooth to='/#about' 
-                        className='desktop-nav-link'
-                        aria-current={activeSection === 'about' ? 'page' : undefined}
-                        onClick={() => setActiveSection('about')}
-                        
-                        >
-                            <svg 
-                            height="28" 
-                            width="28" 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            className='desktop-nav-icon' 
-                            aria-hidden="true"
-                            focusable="false"
-                            >
-                                <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
-                            </svg>
-                                
-                            About
-                        </Link>
-                    </li>
+                                <svg
+                                    height="28"
+                                    width="28"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="desktop-nav-icon"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                >
+                                    <circle r="12" cx="14" cy="14" fill="#011627" stroke="#F8F8F8" strokeWidth="3" />
+                                </svg>
+                                {label}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </>
-    )
-
+    );
 }
 
-export default DesktopNav
+export default DesktopNav;
+
