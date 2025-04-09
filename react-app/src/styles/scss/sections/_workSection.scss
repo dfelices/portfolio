@@ -54,6 +54,7 @@
        background-color: $primary-dark;
        color: $strict-white;
        box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);/* Adds a subtle shadow for better aesthetics */
+       cursor: pointer;
 
        .tool {
         @include item-chip($accent-green, $strict-white, $primary-dark);
