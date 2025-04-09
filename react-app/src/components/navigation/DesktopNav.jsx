@@ -2,7 +2,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import { useState, useEffect } from 'react';
 
 function DesktopNav() {
-    const [activeSection, setActiveSection] = useState(''); // Default to no section active
+    const [activeSection, setActiveSection] = useState('work'); // Default to "Work"
 
     const navItems = [
         { to: '/#work', label: 'Work', id: 'work' },
@@ -17,18 +17,38 @@ function DesktopNav() {
         };
 
         const handleIntersect = (entries) => {
+            let activeDetected = false; // To track whether any section is currently active
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setActiveSection(entry.target.id);
+                    activeDetected = true; // A section is detected as active
                 }
             });
+
+            // If no section is intersecting, default to "Work"
+            if (!activeDetected) {
+                setActiveSection('work');
+            }
         };
 
         const observer = new IntersectionObserver(handleIntersect, observerOptions);
+        const sections = document.querySelectorAll('section');
 
         // Attach observer to all sections
-        const sections = document.querySelectorAll('section');
         sections.forEach((section) => observer.observe(section));
+
+        // Force "Work" as active on page load
+        const handleInitialLoad = () => {
+            const workSection = document.getElementById('work');
+            const scrollY = window.scrollY || window.pageYOffset;
+
+            // If the user is at or near the top, force "Work" as active
+            if (workSection && scrollY < workSection.offsetHeight * 0.2) {
+                setActiveSection('work');
+            }
+        };
+
+        handleInitialLoad(); // Run initial load check
 
         return () => {
             // Cleanup observer on component unmount
@@ -73,4 +93,3 @@ function DesktopNav() {
 }
 
 export default DesktopNav;
-
