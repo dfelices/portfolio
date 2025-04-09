@@ -1,77 +1,61 @@
-import { customEndPointGlobalSettings, useFetch, Loading } from '../../utilities'
-import ContactSection from './ContactSection'
-import DesktopNav from '../navigation/DesktopNav'
-import { useMediaQuery } from 'react-responsive'
-import { useEffect } from 'react'
+import { customEndPointGlobalSettings, useFetch } from '../../utilities';
+import ContactSection from './ContactSection';
+import { useMediaQuery } from 'react-responsive';
+import DesktopNav from '../navigation/DesktopNav';
 
+function HomeSection() {
+    const isMobile = useMediaQuery({ maxWidth: 768 });
 
-function HomeSection (){
-    const isMobile = useMediaQuery({maxWidth: 768})
+    const { data: restData, error } = useFetch(customEndPointGlobalSettings);
 
-    const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);
-
-    useEffect(() => {
-        document.getElementById('home')?.focus(); // Focus management for accessibility
-    }, [isMobile]);
-
-    if (isLoading) {
-        return (
-            <div role="status" aria-live="polite">
-                <Loading /> {/* Custom loading component for visuals */}
-                <p>Loading... Please wait</p> {/* Static accessible message for screen readers */}
-            </div>
-        );
-    }
-
+    // Accessible error handling
     if (error) {
         return <p role="alert">Error: {error}</p>; // Accessible error messaging
     }
-    return(
+
+    // Fallback content for cases where data is not available
+    const firstName = restData?.first_name || 'First Name';
+    const lastName = restData?.last_name || 'Last Name';
+    const title = restData?.title || 'Profile Title';
+    const tagline = restData?.tagline || 'Welcome to my profile';
+
+    return (
         <>
-        
-        {isMobile? 
-            <section id='home' role='main' tabIndex='-1' aria-labelledby='home-title'>
-                <div className='home-content'>
-                    <div className='home-name-title'>
-                        <h1 id='home-title'>
-                            {`${restData.first_name || 'First Name'} ${restData.last_name || 'Last Name'}`}
-                        </h1>
-                        <p className="profile-title">{restData.title || "Profile Title"}</p>
-                    </div>
-                    <p className='tagline'>{restData.tagline || 'Welcome to my profile'}</p>
-                </div>
-
-                <ContactSection />
-            </section>
-
-            :
-
-            <section id='home' role='main' tabIndex='-1' aria-labelledby='home-title'>
-                <div className="desktop-home-content">
+            {isMobile ? (
+                <section id="home" role="main" tabIndex="-1" aria-labelledby="home-title">
                     <div className="home-content">
-                        <div>
-                            <h1 id='home-title'>
-                                {`${restData.first_name || "First Name"} ${restData.last_name || "Last Name"}`}
+                        <div className="home-name-title">
+                            <h1 id="home-title">
+                                {`${firstName} ${lastName}`}
                             </h1>
-                            <p className="profile-title">{restData.title || "Profile Title"}</p>
+                            <p className="profile-title">{title}</p>
                         </div>
-                        <p className="tagline">{restData.tagline || "Welcome to my profile"}</p>
-
+                        <p className="tagline">{tagline}</p>
                     </div>
 
-                    <DesktopNav />
-                </div>
+                    <ContactSection />
+                </section>
+            ) : (
+                <section id="home" role="main" tabIndex="-1" aria-labelledby="home-title">
+                    <div className="desktop-home-content">
+                        <div className="home-content">
+                            <div>
+                                <h1 id="home-title">
+                                    {`${firstName} ${lastName}`}
+                                </h1>
+                                <p className="profile-title">{title}</p>
+                            </div>
+                            <p className="tagline">{tagline}</p>
+                        </div>
 
+                        <DesktopNav />
+                    </div>
 
-                <ContactSection />
-            
-            </section>
-
-        
-        }
-    </>
-
-    )
+                    <ContactSection />
+                </section>
+            )}
+        </>
+    );
 }
 
-export default HomeSection
+export default HomeSection;

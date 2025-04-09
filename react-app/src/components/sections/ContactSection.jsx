@@ -1,20 +1,8 @@
-import { customEndPointGlobalSettings, useFetch, Loading } from '../../utilities'
-import {GitHubIcon, LinkedInIcon, MailIcon} from '../icons'
+import { customEndPointGlobalSettings, useFetch } from '../../utilities';
+import { GitHubIcon, LinkedInIcon, MailIcon } from '../icons';
 
-
-
-function ContactSection (){
-    const { data: restData, isLoading, error } = useFetch(customEndPointGlobalSettings);
-
-    // Accessible loading state
-    if (isLoading) {
-        return (
-            <div role="status" aria-live="polite">
-                <Loading /> {/* Custom loading component for visuals */}
-                <p>Loading contact links...</p> {/* Static accessible message for screen readers */}
-            </div>
-        );
-    }
+function ContactSection() {
+    const { data: restData, error } = useFetch(customEndPointGlobalSettings);
 
     // Accessible error handling
     if (error) {
@@ -26,13 +14,13 @@ function ContactSection (){
     }
 
     // Fallback if contact links are unavailable
-    if (!restData.contact_links || restData.contact_links.length === 0) {
+    if (!restData?.contact_links || restData.contact_links.length === 0) {
         return <p>No contact links available.</p>;
     }
 
-    return(
+    return (
         <>
-            <ul id='contact' className='contact-icons'>
+            <ul id="contact" className="contact-icons">
                 {restData.contact_links.map((link, index) => {
                     let IconComponent;
 
@@ -52,7 +40,7 @@ function ContactSection (){
                                 aria-label={`Visit my ${link.platform_name} profile`}
                             >
                                 {IconComponent ? (
-                                    <IconComponent 
+                                    <IconComponent
                                         className="contact-icon"
                                         aria-hidden="true" // Prevent decorative icons from being announced
                                     />
@@ -78,8 +66,7 @@ function ContactSection (){
                 </li>
             </ul>
         </>
-
-    )
+    );
 }
 
-export default ContactSection
+export default ContactSection;
