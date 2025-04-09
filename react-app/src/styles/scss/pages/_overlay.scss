@@ -197,14 +197,21 @@ button{
 }
 
 .overlay-collab{
-    @include flex-column(0.5rem);
+    @include flex-column;
+    .overlay-sub-heading{
+        line-height: 1.1;
+    }
 }
 
 .overlay-roles{
-    @include flex-column(0.5rem);
+    @include flex-column;
     justify-content: center;
     margin: 0 auto;
     width: 100%;
+
+    .overlay-sub-heading{
+        line-height: 1.3;
+    }
 
     ul{
         margin: 0;
